@@ -169,7 +169,7 @@ const Home = () => {
             <div className="min-h-[400px] md:min-h-[300px] flex items-center justify-center mb-8 px-4">
               {/* Phase 1: Minting */}
               {activePhase === 0 && (
-                <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 w-full max-w-4xl">
+                <div className="flex flex-col sm:flex-row! items-center justify-center gap-6 md:gap-8 w-full max-w-4xl">
                   <div
                     className={`transition-all duration-500 ${
                       animationStep >= 0
@@ -182,7 +182,7 @@ const Home = () => {
 
                   {animationStep >= 1 && (
                     <>
-                      <div className="flex flex-col md:flex-row items-center gap-4">
+                      <div className="flex flex-col md:flex-row! items-center gap-4">
                         <SecretStep size="small" />
                         <ArrowStep />
                       </div>
@@ -191,7 +191,7 @@ const Home = () => {
 
                   {animationStep >= 2 && (
                     <>
-                      <div className="flex flex-col md:flex-row items-center gap-4">
+                      <div className="flex flex-col md:flex-row! items-center gap-4">
                         <BlindedStep size="small" />
                         <ArrowStep />
                       </div>
@@ -211,10 +211,10 @@ const Home = () => {
                   )}
 
                   {animationStep >= 3 && (
-                    <>
+                    <div className="flex flex-col md:flex-row! items-center gap-4">
                       <ArrowStep />
                       <TokenStep size="small" />
-                    </>
+                    </div>
                   )}
                 </div>
               )}
@@ -234,7 +234,7 @@ const Home = () => {
 
                   {animationStep >= 1 && (
                     <>
-                      <div className="flex flex-col md:flex-row items-center gap-4">
+                      <div className="flex flex-col md:flex-row! items-center gap-4">
                         <TokenStep size="small" />
                         <ArrowStep />
                         <PrivateStep size="small" />
@@ -272,7 +272,7 @@ const Home = () => {
 
                   {animationStep >= 1 && (
                     <>
-                      <div className="flex flex-col md:flex-row items-center gap-4">
+                      <div className="flex flex-col md:flex-row! items-center gap-4">
                         <TokenStep size="small" />
                         <ArrowStep />
                       </div>
@@ -292,17 +292,17 @@ const Home = () => {
                   )}
 
                   {animationStep >= 2 && (
-                    <>
+                    <div className="flex flex-col md:flex-row! items-center gap-4">
                       <ArrowStep />
                       <CheckDBStep size="small" />
-                    </>
+                    </div>
                   )}
 
                   {animationStep >= 3 && (
-                    <>
+                    <div className="flex flex-col md:flex-row! items-center gap-4">
                       <ArrowStep />
                       <PaidStep size="small" />
-                    </>
+                    </div>
                   )}
                 </div>
               )}
@@ -310,7 +310,7 @@ const Home = () => {
               {/* Privacy Notice */}
               {activePhase === 2 && animationStep >= 4 && (
                 <div className="p-6 bg-linear-to-r from-purple-600/40 to-pink-600/40 rounded-xl border-2 border-purple-400 animate-pulse">
-                  <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+                  <div className="flex flex-col md:flex-row! items-center justify-center gap-4">
                     <Eye className="w-10 h-10 text-purple-300" />
                     <div className="text-xl md:text-2xl font-bold text-center">
                       🔒 PRIVACY: Bob doesn't know Carol's token came from Alice!

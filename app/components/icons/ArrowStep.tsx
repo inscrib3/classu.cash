@@ -15,7 +15,7 @@ export const ArrowStep: React.FC<React.SVGProps<SVGSVGElement>> = ({
         strokeLinecap="round"
         strokeLinejoin="round"
         aria-hidden="true"
-        className={`hidden md:block w-10 h-10 text-white animate-bounce ${className ?? ""}`}
+        className={`hidden md:block! w-10 h-10 text-white animate-bounce ${className ?? ""}`}
         {...rest}
       >
         <path d="M5 12h14" />
