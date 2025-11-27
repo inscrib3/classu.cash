@@ -20,6 +20,12 @@ export const IconStep: React.FC<IconStepProps> = ({
   color,
   size = "medium",
   animated = true,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  color: string;
+  size?: "small" | "medium" | "large";
+  animated?: boolean;
 }) => {
   const sizes = sizeClasses[size];
   const animationClass = animated ? "animate-pulse" : "";
@@ -29,9 +35,7 @@ export const IconStep: React.FC<IconStepProps> = ({
       <div
         className={`${sizes.container} ${color} mx-auto flex items-center justify-center ${animationClass}`}
       >
-        {React.cloneElement(icon as React.ReactElement, {
-          className: sizes.icon,
-        })}
+        <div className={sizes.icon}>{icon}</div>
       </div>
       <div className={`${sizes.text} text-center whitespace-nowrap`}>
         {label}
