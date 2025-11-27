@@ -9,11 +9,19 @@ import {
   CheckCircle,
   Database,
   Coins,
-  ArrowRight,
-  ArrowDown,
   MessageSquare,
   Zap,
 } from "lucide-react";
+import { ArrowStep } from "./components/icons/ArrowStep";
+import { Alice } from "./components/Alice";
+import { Bob } from "./components/Bob";
+import { Carol } from "./components/Carol";
+import { SecretStep } from "./components/steps/SecretStep";
+import { BlindedStep } from "./components/steps/BlindedStep";
+import { TokenStep } from "./components/steps/TokenStep";
+import { PrivateStep } from "./components/steps/PrivateStep";
+import { CheckDBStep } from "./components/steps/CheckDBStep";
+import { PaidStep } from "./components/steps/PaidStep";
 
 const Home = () => {
   const [activePhase, setActivePhase] = useState(0);
@@ -97,41 +105,15 @@ const Home = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-purple-400/50 hover:scale-105 transition-transform">
-              <div className="w-24 h-24 mx-auto mb-4 bg-linear-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-6xl shadow-xl">
-                👩
-              </div>
-              <h3 className="text-2xl font-bold text-center mb-2">Alice</h3>
-              <p className="text-gray-300 text-center">
-                Wants to send money privately
-              </p>
-              <div className="mt-4 flex justify-center gap-3">
-                <Lock className="w-5 h-5 text-purple-300" />
-                <Key className="w-5 h-5 text-purple-300" />
-              </div>
+              <Alice />
             </div>
 
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-blue-400/50 hover:scale-105 transition-transform">
-              <div className="w-24 h-24 mx-auto mb-4 bg-linear-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-6xl shadow-xl">
-                👨‍💼
-              </div>
-              <h3 className="text-2xl font-bold text-center mb-2">Bob</h3>
-              <p className="text-gray-300 text-center">The Mint Operator</p>
-              <div className="mt-4 flex justify-center gap-3">
-                <Database className="w-5 h-5 text-blue-300" />
-                <CheckCircle className="w-5 h-5 text-blue-300" />
-              </div>
+              <Bob />
             </div>
 
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-pink-400/50 hover:scale-105 transition-transform">
-              <div className="w-24 h-24 mx-auto mb-4 bg-linear-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center text-6xl shadow-xl">
-                👩‍🦱
-              </div>
-              <h3 className="text-2xl font-bold text-center mb-2">Carol</h3>
-              <p className="text-gray-300 text-center">Receives the payment</p>
-              <div className="mt-4 flex justify-center gap-3">
-                <Coins className="w-5 h-5 text-pink-300" />
-                <Zap className="w-5 h-5 text-pink-300" />
-              </div>
+              <Carol />
             </div>
           </div>
         </section>
@@ -187,7 +169,7 @@ const Home = () => {
             <div className="min-h-[400px] md:min-h-[300px] flex items-center justify-center mb-8 px-4">
               {/* Phase 1: Minting */}
               {activePhase === 0 && (
-                <div className="flex md:flex-row items-center justify-center gap-6 md:gap-8 w-full max-w-4xl">
+                <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 w-full max-w-4xl">
                   <div
                     className={`transition-all duration-500 ${
                       animationStep >= 0
@@ -195,23 +177,14 @@ const Home = () => {
                         : "opacity-0 scale-50"
                     }`}
                   >
-                    <div className="bg-purple-500 rounded-full w-24 h-24 flex items-center justify-center text-5xl shadow-2xl mx-auto">
-                      👩
-                    </div>
-                    <div className="text-center mt-2 text-lg font-semibold">
-                      Alice
-                    </div>
+                    <Alice size="small" compact />
                   </div>
 
                   {animationStep >= 1 && (
                     <>
                       <div className="flex flex-col md:flex-row items-center gap-4">
-                        <div className="animate-pulse text-center">
-                          <Lock className="w-16 h-16 text-yellow-400 mx-auto" />
-                          <div className="text-sm mt-2">Secret</div>
-                        </div>
-                        <ArrowRight className="hidden md:block w-10 h-10 text-white animate-bounce" />
-                        <ArrowDown className="md:hidden w-10 h-10 text-white animate-bounce" />
+                        <SecretStep size="small" />
+                        <ArrowStep />
                       </div>
                     </>
                   )}
@@ -219,12 +192,8 @@ const Home = () => {
                   {animationStep >= 2 && (
                     <>
                       <div className="flex flex-col md:flex-row items-center gap-4">
-                        <div className="animate-pulse text-center">
-                          <EyeOff className="w-16 h-16 text-gray-400 mx-auto" />
-                          <div className="text-sm mt-2">Blinded</div>
-                        </div>
-                        <ArrowRight className="hidden md:block w-10 h-10 text-white animate-bounce" />
-                        <ArrowDown className="md:hidden w-10 h-10 text-white animate-bounce" />
+                        <BlindedStep size="small" />
+                        <ArrowStep />
                       </div>
                     </>
                   )}
@@ -237,25 +206,14 @@ const Home = () => {
                           : "opacity-0 scale-50"
                       }`}
                     >
-                      <div className="bg-blue-500 rounded-full w-24 h-24 flex items-center justify-center text-5xl shadow-2xl mx-auto">
-                        👨‍💼
-                      </div>
-                      <div className="text-center mt-2 text-lg font-semibold">
-                        Bob
-                      </div>
+                      <Bob size="small" compact />
                     </div>
                   )}
 
                   {animationStep >= 3 && (
                     <>
-                      <ArrowRight className="hidden md:block w-10 h-10 text-white animate-bounce" />
-                      <ArrowDown className="md:hidden w-10 h-10 text-white animate-bounce" />
-                      <div className="animate-bounce text-center">
-                        <Coins className="w-16 h-16 text-green-400 mx-auto" />
-                        <div className="mt-2 text-xl font-bold text-green-400">
-                          Token!
-                        </div>
-                      </div>
+                      <ArrowStep />
+                      <TokenStep size="small" />
                     </>
                   )}
                 </div>
@@ -263,7 +221,7 @@ const Home = () => {
 
               {/* Phase 2: Transfer */}
               {activePhase === 1 && (
-                <div className="flex md:flex-row items-center justify-center gap-6 md:gap-8 w-full max-w-4xl">
+                <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 w-full max-w-4xl">
                   <div
                     className={`transition-all duration-500 ${
                       animationStep >= 0
@@ -271,29 +229,16 @@ const Home = () => {
                         : "opacity-0 scale-50"
                     }`}
                   >
-                    <div className="bg-purple-500 rounded-full w-24 h-24 flex items-center justify-center text-5xl shadow-2xl mx-auto">
-                      👩
-                    </div>
-                    <div className="text-center mt-2 text-lg font-semibold">
-                      Alice
-                    </div>
+                    <Alice size="small" compact />
                   </div>
 
                   {animationStep >= 1 && (
                     <>
                       <div className="flex flex-col md:flex-row items-center gap-4">
-                        <div className="animate-pulse text-center">
-                          <Coins className="w-16 h-16 text-green-400 mx-auto" />
-                          <div className="text-sm mt-2">Token</div>
-                        </div>
-                        <ArrowRight className="hidden md:block w-10 h-10 text-white animate-bounce" />
-                        <ArrowDown className="md:hidden w-10 h-10 text-white animate-bounce" />
-                        <div className="animate-pulse text-center">
-                          <MessageSquare className="w-16 h-16 text-cyan-400 mx-auto" />
-                          <div className="text-sm mt-2">Private</div>
-                        </div>
-                        <ArrowRight className="hidden md:block w-10 h-10 text-white animate-bounce" />
-                        <ArrowDown className="md:hidden w-10 h-10 text-white animate-bounce" />
+                        <TokenStep size="small" />
+                        <ArrowStep />
+                        <PrivateStep size="small" />
+                        <ArrowStep />
                       </div>
                     </>
                   )}
@@ -306,12 +251,7 @@ const Home = () => {
                           : "opacity-0 scale-50"
                       }`}
                     >
-                      <div className="bg-pink-500 rounded-full w-24 h-24 flex items-center justify-center text-5xl shadow-2xl mx-auto">
-                        👩‍🦱
-                      </div>
-                      <div className="text-center mt-2 text-lg font-semibold">
-                        Carol
-                      </div>
+                      <Carol size="small" compact />
                     </div>
                   )}
                 </div>
@@ -319,7 +259,7 @@ const Home = () => {
 
               {/* Phase 3: Redemption */}
               {activePhase === 2 && (
-                <div className="flex md:flex-row items-center justify-center gap-6 md:gap-8 w-full max-w-5xl">
+                <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 w-full max-w-5xl">
                   <div
                     className={`transition-all duration-500 ${
                       animationStep >= 0
@@ -327,22 +267,14 @@ const Home = () => {
                         : "opacity-0 scale-50"
                     }`}
                   >
-                    <div className="bg-pink-500 rounded-full w-24 h-24 flex items-center justify-center text-5xl shadow-2xl mx-auto">
-                      👩‍🦱
-                    </div>
-                    <div className="text-center mt-2 text-lg font-semibold">
-                      Carol
-                    </div>
+                    <Carol size="small" compact />
                   </div>
 
                   {animationStep >= 1 && (
                     <>
                       <div className="flex flex-col md:flex-row items-center gap-4">
-                        <div className="animate-pulse">
-                          <Coins className="w-14 h-14 text-green-400 mx-auto" />
-                        </div>
-                        <ArrowRight className="hidden md:block w-8 h-8 text-white animate-bounce" />
-                        <ArrowDown className="md:hidden w-8 h-8 text-white animate-bounce" />
+                        <TokenStep size="small" />
+                        <ArrowStep />
                       </div>
                     </>
                   )}
@@ -355,53 +287,38 @@ const Home = () => {
                           : "opacity-0 scale-50"
                       }`}
                     >
-                      <div className="bg-blue-500 rounded-full w-24 h-24 flex items-center justify-center text-5xl shadow-2xl mx-auto">
-                        👨‍💼
-                      </div>
-                      <div className="text-center mt-2 text-lg font-semibold">
-                        Bob
-                      </div>
+                      <Bob size="small" compact />
                     </div>
                   )}
 
                   {animationStep >= 2 && (
                     <>
-                      <ArrowRight className="hidden md:block w-8 h-8 text-white animate-bounce" />
-                      <ArrowDown className="md:hidden w-8 h-8 text-white animate-bounce" />
-                      <div className="animate-pulse text-center">
-                        <Database className="w-14 h-14 text-purple-400 mx-auto" />
-                        <div className="text-sm mt-2">Check DB</div>
-                      </div>
+                      <ArrowStep />
+                      <CheckDBStep size="small" />
                     </>
                   )}
 
                   {animationStep >= 3 && (
                     <>
-                      <ArrowRight className="hidden md:block w-8 h-8 text-white animate-bounce" />
-                      <ArrowDown className="md:hidden w-8 h-8 text-white animate-bounce" />
-                      <div className="animate-bounce text-center">
-                        <CheckCircle className="w-14 h-14 text-green-400 mx-auto" />
-                        <div className="mt-2 text-xl font-bold text-green-400">
-                          Paid!
-                        </div>
-                      </div>
+                      <ArrowStep />
+                      <PaidStep size="small" />
                     </>
                   )}
                 </div>
               )}
             </div>
-
-            {/* Privacy Notice */}
-            {activePhase === 2 && animationStep >= 4 && (
-              <div className="p-6 bg-linear-to-r from-purple-600/40 to-pink-600/40 rounded-xl border-2 border-purple-400 animate-pulse">
-                <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-                  <Eye className="w-10 h-10 text-purple-300" />
-                  <div className="text-xl md:text-2xl font-bold text-center">
-                    🔒 PRIVACY: Bob doesn't know Carol's token came from Alice!
+              {/* Privacy Notice */}
+              {activePhase === 2 && animationStep >= 4 && (
+                <div className="p-6 bg-linear-to-r from-purple-600/40 to-pink-600/40 rounded-xl border-2 border-purple-400 animate-pulse">
+                  <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+                    <Eye className="w-10 h-10 text-purple-300" />
+                    <div className="text-xl md:text-2xl font-bold text-center">
+                      🔒 PRIVACY: Bob doesn't know Carol's token came from Alice!
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
+
           </section>
 
           {/* Steps Section */}
@@ -471,7 +388,7 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Aggiungi una section "powered with love by"*/}
+        {/* section "powered with love by"*/}
         <div className="text-center text-sm text-gray-400 mt-12">
           Powered with ❤️ by{" "}
           <a
