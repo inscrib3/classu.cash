@@ -1,8 +1,10 @@
 import React from "react";
+import Image from "next/image";
 
 interface CharacterProps {
   name: string;
-  emoji: string;
+  emoji?: string;
+  imageSrc?: string;
   role: string;
   gradientFrom: string;
   gradientTo: string;
@@ -18,9 +20,16 @@ const sizeClasses = {
   large: { container: "w-24 h-24", text: "text-6xl", name: "text-3xl" },
 };
 
+const imageSizes = {
+  small: { w: 48, h: 48 },
+  medium: { w: 80, h: 80 },
+  large: { w: 96, h: 96 },
+};
+
 export const Character: React.FC<CharacterProps> = ({
   name,
   emoji,
+  imageSrc,
   role,
   gradientFrom,
   gradientTo,
@@ -30,13 +39,18 @@ export const Character: React.FC<CharacterProps> = ({
   compact = false, // NEW
 }) => {
   const sizes = sizeClasses[size];
+  const wh = imageSizes[size];
 
   return (
     <div className="flex flex-col items-center">
       <div
         className={`${sizes.container} mx-auto mb-4 bg-linear-to-br ${gradientFrom} ${gradientTo} rounded-full flex items-center justify-center ${sizes.text} shadow-2xl border-2 ${borderColor}`}
       >
-        {emoji}
+        {imageSrc ? (
+          <Image src={imageSrc} alt={name} width={wh.w} height={wh.h} unoptimized />
+        ) : (
+          <>{emoji}</>
+        )}
       </div>
 
       {/* Show name always; hide role and icons when compact */}
