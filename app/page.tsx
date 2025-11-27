@@ -12,16 +12,16 @@ import {
   MessageSquare,
   Zap,
 } from "lucide-react";
-import { ArrowStep } from "./components/icons/ArrowStep";
-import { Alice } from "./components/Alice";
-import { Bob } from "./components/Bob";
-import { Carol } from "./components/Carol";
-import { SecretStep } from "./components/steps/SecretStep";
-import { BlindedStep } from "./components/steps/BlindedStep";
-import { TokenStep } from "./components/steps/TokenStep";
-import { PrivateStep } from "./components/steps/PrivateStep";
-import { CheckDBStep } from "./components/steps/CheckDBStep";
-import { PaidStep } from "./components/steps/PaidStep";
+import { ArrowStep } from "./ui/icons/ArrowStep";
+import { Alice } from "./ui/Alice";
+import { Bob } from "./ui/Bob";
+import { Carol } from "./ui/Carol";
+import { SecretStep } from "./ui/steps/SecretStep";
+import { BlindedStep } from "./ui/steps/BlindedStep";
+import { TokenStep } from "./ui/steps/TokenStep";
+import { PrivateStep } from "./ui/steps/PrivateStep";
+import { CheckDBStep } from "./ui/steps/CheckDBStep";
+import { PaidStep } from "./ui/steps/PaidStep";
 
 const Home = () => {
   const [activePhase, setActivePhase] = useState(0);
@@ -221,7 +221,7 @@ const Home = () => {
 
               {/* Phase 2: Transfer */}
               {activePhase === 1 && (
-                <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 w-full max-w-4xl">
+                <div className="flex sm:flex-row! flex-col items-center justify-center gap-6 md:gap-8 w-full max-w-4xl">
                   <div
                     className={`transition-all duration-500 ${
                       animationStep >= 0
@@ -259,7 +259,7 @@ const Home = () => {
 
               {/* Phase 3: Redemption */}
               {activePhase === 2 && (
-                <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 w-full max-w-5xl">
+                <div className="flex sm:flex-row! flex-col items-center justify-center gap-6 md:gap-8 w-full max-w-5xl">
                   <div
                     className={`transition-all duration-500 ${
                       animationStep >= 0
