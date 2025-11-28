@@ -2,15 +2,19 @@ import React from "react";
 import { Database, CheckCircle } from "lucide-react";
 import { Character } from "./Character";
 
+import {useTranslations} from 'next-intl';
+
 export const Bob: React.FC<{
   size?: "small" | "medium" | "large";
   compact?: boolean; // NEW
 }> = ({ size = "medium", compact = false }) => {
+  const t = useTranslations('UiBob');
+
   return (
     <Character
       name="Bob"
       imageSrc="/img/bob.svg"
-      role="The mint operator"
+      role={t('role')}
       gradientFrom="from-blue-400"
       gradientTo="to-blue-600"
       borderColor="border-blue-400"

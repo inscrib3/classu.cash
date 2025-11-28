@@ -1,0 +1,62 @@
+{
+  "HomePage": {
+    "title": "classu.cash",
+    "subtitle": "Cashu è denaro digitale che tutela la privacy utilizzando firme anonime",
+    "Meet the Characters": "Questi sono i personaggi",
+    "Key Concept: Blind Signatures": "Concetto chiave: firme cieche",
+    "Bob signs tokens": "Bob firma i token senza vederne il contenuto, garantendo la privacy. Il token è una combinazione del segreto di Alice + la firma di Bob. Quando Carol lo riscatta, Bob può verificarne la validità, ma non può collegarlo ad Alice.",
+    "Select a Phase": "Seleziona una fase",
+    "PRIVACY: Bob": "PRIVACY: Bob non sa che il token di Carol proveniva da Alice!",
+    "Powered": "Curato con ❤️ da",
+    "Website": "Sito web",
+    "Docs": "Documentazione",
+    "Wallet": "Wallet",
+    "Phase": "Fase",
+
+
+      "ph1 title": "Minting",
+      "ph1 fullTitle": "Fase 1: Minting",
+      "ph1 subtitle": "Alice e Bob",
+      "ph1 description":
+        "Alice crea un messaggio segreto e fa sì che Bob (l'operatore della mint) lo firmi ciecamente",
+
+      "ph1 st1": "Alice crea un messaggio segreto",
+      "ph1 st2": "Alice acceca il segreto",
+      "ph1 st3": "Bob firma il messaggio in cieco (senza vederlo)",
+      "ph1 st4": "Alice sblocca per ottenere un token valido",
+
+      "ph2 title": "Trasferimento",
+      "ph2 fullTitle": "Fase 2: Trasferimento",
+      "ph2 subtitle": "Alice → Carol",
+      "ph2 description":
+        "Alice invia il token privatamente a Carol, off-chain",
+        "ph2 st1": "Alice invia il token valido a Carol",
+        "ph2 st2": "Il trasferimento avviene privatamente (ad esempio, tramite chat)",
+        "ph2 st3": "Non è necessaria alcuna blockchain: istantaneo e privato",
+
+      "ph3 title": "Riscatto",
+      "ph3 fullTitle": "Fase 3: Riscatto",
+      "ph3 subtitle": "Carol e Bob",
+      "ph3 description":
+        "Carol riscatta il token con Bob e riceve i fondi",      
+        "ph3 st1": "Carol rispedisce il token a Bob",
+        "ph3 st2": "Bob verifica che il token non sia stato speso",
+        "ph3 st3": "Bob controlla il database dei segreti spesi",
+        "ph3 st4": "Carol riceve i fondi, il token è contrassegnato come speso",
+        "ph3 st5": "Bob non sa che il token proviene da Alice (PRIVACY!)"
+
+  },
+  "LocaleSwitcher": {
+    "label": "Cambia lingua",
+    "locale": "{locale, select, en {English} es {Espanol} de {Deutsch} it {Italiano} zh {Chinese} other {Unbekannt}}"
+  },
+  "UiAlice": {
+    "role": "Vuole inviare denaro privatamente"
+  },
+  "UiBob": {
+    "role": "L'operatore del mint"
+  },
+  "UiCarol": {
+    "role": "Riceve il pagamento"
+  }
+}
