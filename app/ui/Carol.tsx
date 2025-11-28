@@ -9,7 +9,7 @@ export const Carol: React.FC<{
   return (
     <Character
       name="Carol"
-      emoji="👩‍🦱"
+      imageSrc="/img/carol.svg"
       role="Receives the payment"
       gradientFrom="from-pink-400"
       gradientTo="to-pink-600"
