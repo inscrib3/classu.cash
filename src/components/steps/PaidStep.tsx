@@ -1,5 +1,5 @@
 import { CheckCircle } from "lucide-react";
-import { IconStep } from "../IconStep";
+import { IconStep } from "@/src/components/IconStep";
 
 export const PaidStep: React.FC<{
   size?: "small" | "medium" | "large";
