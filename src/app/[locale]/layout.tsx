@@ -5,6 +5,7 @@ import {NextIntlClientProvider} from 'next-intl';
 import {routing} from '@/src/i18n/routing';
 import Navigation from '@/src/components/Navigation'
 import "@/src/app/globals.css";
+import { notFound } from "next/navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,10 @@ export default async function LocaleLayout({children, params}: Props)
 
   // Set the request locale for static export
   setRequestLocale(locale);
+
+  if (!routing.locales.includes(locale as "en" | "es" | "de" | "it" | "zh")) {
+    notFound();
+  }
 
   // Get messages using next-intl's getMessages with explicit locale (works in both dev and build)
   const messages = await getMessages({locale});
