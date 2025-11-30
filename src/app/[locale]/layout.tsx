@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import {setRequestLocale} from 'next-intl/server';
-import {NextIntlClientProvider, hasLocale} from 'next-intl';
-import {notFound} from 'next/navigation';
-import {routing} from '../../i18n/routing';
-import Navigation from '../../components/Navigation'
-import "../globals.css";
+import {setRequestLocale, getMessages} from 'next-intl/server';
+import {NextIntlClientProvider} from 'next-intl';
+import {routing} from '@/src/i18n/routing';
+import Navigation from '@/src/components/Navigation'
+import "@/src/app/globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,19 +26,16 @@ type Props = {
   params: Promise<{locale: string}>;
 };
 
-// export default function RootLayout({
-//   children,
-// }: Readonly<{
-//   children: React.ReactNode;
-//   params: Promise<{locale: string}>;
-// }>)
 export default async function LocaleLayout({children, params}: Props)
 {
   // Ensure that the incoming `locale` is valid
   const {locale} = await params;
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
+
+  // Set the request locale for static export
+  setRequestLocale(locale);
+
+  // Get messages using next-intl's getMessages with explicit locale (works in both dev and build)
+  const messages = await getMessages({locale});
 
   return (
     <html lang={locale}>
@@ -49,7 +45,7 @@ export default async function LocaleLayout({children, params}: Props)
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NextIntlClientProvider>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <Navigation />
           {children}
         </NextIntlClientProvider>
@@ -57,3 +53,4 @@ export default async function LocaleLayout({children, params}: Props)
     </html>
   );
 }
+
