@@ -1,5 +1,5 @@
 import { EyeOff } from "lucide-react";
-import { IconStep } from "../IconStep";
+import { IconStep } from "@/src/components/IconStep";
 
 export const BlindedStep: React.FC<{
   size?: "small" | "medium" | "large";
