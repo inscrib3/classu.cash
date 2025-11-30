@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import {
   Lock,
@@ -23,46 +22,48 @@ import { PrivateStep } from "./ui/steps/PrivateStep";
 import { CheckDBStep } from "./ui/steps/CheckDBStep";
 import { PaidStep } from "./ui/steps/PaidStep";
 
+import {useTranslations} from 'next-intl';
+
 const Home = () => {
+  const t = useTranslations('HomePage');
   const [activePhase, setActivePhase] = useState(0);
   const [animationStep, setAnimationStep] = useState(0);
 
   const phases = [
     {
-      title: "Minting",
-      fullTitle: "Phase 1: Minting",
-      subtitle: "Alice & Bob",
-      description:
-        "Alice creates a secret message and gets Bob (the mint operator) to blindly sign it",
+      title: t('ph1 title'),
+      fullTitle: t('ph1 fullTitle'),
+      subtitle: t('ph1 subtitle'),
+      description: t('ph1 description'),
       steps: [
-        "Alice creates a secret message",
-        "Alice blinds the secret",
-        "Bob signs the blinded message (without seeing it)",
-        "Alice unblinds to get a valid token",
+        t('ph1 st1'),
+        t('ph1 st2'),
+        t('ph1 st3'),
+        t('ph1 st4'),
       ],
     },
     {
-      title: "Transfer",
-      fullTitle: "Phase 2: Transfer",
-      subtitle: "Alice → Carol",
-      description: "Alice sends the token privately to Carol, off-chain",
+      title: t('ph2 title'),
+      fullTitle: t('ph2 fullTitle'),
+      subtitle: t('ph2 subtitle'),
+      description: t('ph2 description'),
       steps: [
-        "Alice sends the valid token to Carol",
-        "Transfer happens privately (e.g., via chat)",
-        "No blockchain needed - instant and private",
+        t('ph2 st1'),
+        t('ph2 st2'),
+        t('ph2 st3')
       ],
     },
     {
-      title: "Redemption",
-      fullTitle: "Phase 3: Redemption",
-      subtitle: "Carol & Bob",
-      description: "Carol redeems the token with Bob and receives funds",
+      title: t('ph3 title'),
+      fullTitle: t('ph3 fullTitle'),
+      subtitle: t('ph3 subtitle'),
+      description: t('ph3 description'),
       steps: [
-        "Carol sends the token back to Bob",
-        "Bob verifies the token hasn't been spent",
-        "Bob checks the spent secrets database",
-        "Carol receives funds, token is marked as spent",
-        "Bob doesn't know the token came from Alice (PRIVACY!)",
+        t('ph3 st1'),
+        t('ph3 st2'),
+        t('ph3 st3'),
+        t('ph3 st4'),
+        t('ph3 st5'),
       ],
     },
   ];
@@ -91,17 +92,17 @@ const Home = () => {
         {/* Header */}
         <header className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-linear-to-r from-blue-400 via-violet-400 to-pink-400">
-            classu.cash
+            {t('title')}
           </h1>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-            Cashu is privacy-preserving digital cash using blind signatures
+            {t('subtitle')}
           </p>
         </header>
 
         {/* Characters Section */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold mb-6 text-center md:text-left">
-            Meet the Characters
+            {t('Meet the Characters')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-purple-400/50 hover:scale-105 transition-transform">
@@ -121,20 +122,17 @@ const Home = () => {
         {/* Key Concept */}
         <section className="bg-linear-to-r from-yellow-600/20 to-orange-600/20 rounded-2xl p-6 md:p-8 border border-yellow-500/50 mb-12">
           <h3 className="text-2xl md:text-3xl font-bold mb-4 text-center">
-            🔑 Key Concept: Blind Signatures
+            🔑 {t('Key Concept: Blind Signatures')}
           </h3>
           <p className="text-lg md:text-xl text-center text-gray-200 leading-relaxed">
-            Bob signs tokens without seeing their content, ensuring privacy. The
-            token is a combination of Alice's secret + Bob's signature. When
-            Carol redeems it, Bob can verify it's valid but can't link it back
-            to Alice.
+            {t('Bob signs tokens')}
           </p>
         </section>
 
         {/* Phase Selection */}
         <section className="mb-8">
           <h2 className="text-2xl font-bold mb-6 text-center">
-            Select a Phase
+            {t('Select a Phase')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {phases.map((phase, idx) => (
@@ -147,7 +145,7 @@ const Home = () => {
                     : "bg-white/10 border-white/30 hover:bg-white/20"
                 }`}
               >
-                <div className="text-2xl font-bold mb-2">Phase {idx + 1}</div>
+                <div className="text-2xl font-bold mb-2">{t('Phase')} {idx + 1}</div>
                 <div className="text-lg font-semibold">{phase.title}</div>
                 <div className="text-sm opacity-80 mt-1">{phase.subtitle}</div>
               </button>
@@ -313,7 +311,7 @@ const Home = () => {
                   <div className="flex flex-col md:flex-row! items-center justify-center gap-4">
                     <Eye className="w-10 h-10 text-purple-300" />
                     <div className="text-xl md:text-2xl font-bold text-center">
-                      🔒 PRIVACY: Bob doesn't know Carol's token came from Alice!
+                      🔒 {t('PRIVACY: Bob')}
                     </div>
                   </div>
                 </div>
@@ -364,7 +362,7 @@ const Home = () => {
                 "cursor-pointer p-6 rounded-xl border-2 transition-all transform hover:scale-105 bg-white/10 border-white/30 hover:bg-white/20"
               }
             >
-              <div className="text-2xl font-bold mb-2">Website</div>
+              <div className="text-2xl font-bold mb-2">{t('Website')}</div>
               <div className="text-lg font-semibold">cashu.space</div>
             </button>
             <button
@@ -373,7 +371,7 @@ const Home = () => {
                 "cursor-pointer p-6 rounded-xl border-2 transition-all transform hover:scale-105 bg-white/10 border-white/30 hover:bg-white/20"
               }
             >
-              <div className="text-2xl font-bold mb-2">Docs</div>
+              <div className="text-2xl font-bold mb-2">{t('Docs')}</div>
               <div className="text-lg font-semibold">docs.cashu.space</div>
             </button>
             <button
@@ -382,7 +380,7 @@ const Home = () => {
                 "cursor-pointer p-6 rounded-xl border-2 transition-all transform hover:scale-105 bg-white/10 border-white/30 hover:bg-white/20"
               }
             >
-              <div className="text-2xl font-bold mb-2">Wallet</div>
+              <div className="text-2xl font-bold mb-2">{t('Wallet')}</div>
               <div className="text-lg font-semibold">cashu.me</div>
             </button>
           </div>
@@ -390,7 +388,7 @@ const Home = () => {
 
         {/* section "powered with love by"*/}
         <div className="text-center text-sm text-gray-400 mt-12">
-          Powered with ❤️ by{" "}
+          {t('Powered')}{" "}
           <a
             href="https://x.com/warlockbtc"
             target="_blank"

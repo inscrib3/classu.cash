@@ -1,0 +1,61 @@
+{
+  "HomePage": {
+    "title": "classu.cash",
+    "subtitle": "Cashu is privacy-preserving digital cash using blind signatures",
+    "Meet the Characters": "Meet the Characters",
+    "Key Concept: Blind Signatures": "Key Concept: Blind Signatures",
+    "Bob signs tokens": "Bob signs tokens without seeing their content, ensuring privacy. The token is a combination of Alice's secret + Bob's signature. When Carol redeems it, Bob can verify it's valid but can't link it back to Alice.",
+    "Select a Phase": "Select a Phase",
+    "PRIVACY: Bob": "PRIVACY: Bob doesn't know Carol's token came from Alice!",
+    "Powered": "Powered with ❤️ by",
+    "Website": "Website",
+    "Docs": "Docs",
+    "Wallet": "Wallet",
+    "Phase": "Phase",
+
+
+      "ph1 title": "Minting",
+      "ph1 fullTitle": "Phase 1: Minting",
+      "ph1 subtitle": "Alice & Bob",
+      "ph1 description":
+        "Alice creates a secret message and gets Bob (the mint operator) to blindly sign it",      
+        "ph1 st1": "Alice creates a secret message",
+        "ph1 st2": "Alice blinds the secret",
+        "ph1 st3": "Bob signs the blinded message (without seeing it)",
+        "ph1 st4": "Alice unblinds to get a valid token",
+
+      "ph2 title": "Transfer",
+      "ph2 fullTitle": "Phase 2: Transfer",
+      "ph2 subtitle": "Alice → Carol",
+      "ph2 description":
+        "Alice sends the token privately to Carol, off-chain",
+        "ph2 st1": "Alice sends the valid token to Carol",
+        "ph2 st2": "Transfer happens privately (e.g., via chat)",
+        "ph2 st3": "No blockchain needed - instant and private",
+
+      "ph3 title": "Redemption",
+      "ph3 fullTitle": "Phase 3: Redemption",
+      "ph3 subtitle": "Carol & Bob",
+      "ph3 description":
+        "Carol redeems the token with Bob and receives funds",      
+        "ph3 st1": "Carol sends the token back to Bob",
+        "ph3 st2": "Bob verifies the token hasn't been spent",
+        "ph3 st3": "Bob checks the spent secrets database",
+        "ph3 st4": "Carol receives funds, token is marked as spent",
+        "ph3 st5": "Bob doesn't know the token came from Alice (PRIVACY!)"
+
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, en {English} es {Espanol} de {Deutsch} it {Italiano} zh {Chinese} other {Unbekannt}}"
+  },
+  "UiAlice": {
+    "role": "Wants to send money privately"
+  },
+  "UiBob": {
+    "role": "The mint operator"
+  },
+  "UiCarol": {
+    "role": "Receives the payment"
+  }
+}
