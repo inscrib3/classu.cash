@@ -5,7 +5,9 @@ import createNextIntlPlugin from 'next-intl/plugin';
 //   output: "export",
 //   images: { unoptimized: true },
 // };
-const nextConfig: NextConfig = {};
+const nextConfig: NextConfig = {
+    output: "export",
+};
 
-const withNextIntl = createNextIntlPlugin();
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 export default withNextIntl(nextConfig);
