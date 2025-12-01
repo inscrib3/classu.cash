@@ -1,0 +1,61 @@
+{
+  "HomePage": {
+    "title": "classu.cash",
+    "subtitle": "Cashu é dinheiro digital que preserva a privacidade usando assinaturas cegas",
+    "Meet the Characters": "Conheça os Personagens",
+    "Key Concept: Blind Signatures": "Conceito Chave: Assinaturas Cegas",
+    "Bob signs tokens": "Bob assina tokens sem ver o seu conteúdo, garantindo a privacidade. O token é uma combinação do segredo de Alice + a assinatura de Bob. Quando Carol o resgata, Bob pode verificar se é válido, mas não pode ligá-lo de volta a Alice.",
+    "Select a Phase": "Selecione uma Fase",
+    "PRIVACY: Bob": "PRIVACIDADE: Bob não sabe que o token de Carol veio de Alice!",
+    "Powered": "Desenvolvido com ❤️ por",
+    "Website": "Website",
+    "Docs": "Documentos",
+    "Wallet": "Carteira",
+    "Phase": "Fase",
+
+
+      "ph1 title": "Cunhagem",
+      "ph1 fullTitle": "Fase 1: Cunhagem (Minting)",
+      "ph1 subtitle": "Alice & Bob",
+      "ph1 description":
+        "Alice cria uma mensagem secreta e pede a Bob (o operador da cunhagem) para assiná-la de forma cega",      
+        "ph1 st1": "Alice cria uma mensagem secreta",
+        "ph1 st2": "Alice 'cega' o segredo",
+        "ph1 st3": "Bob assina a mensagem cega (sem vê-la)",
+        "ph1 st4": "Alice 'descega' para obter um token válido",
+
+      "ph2 title": "Transferência",
+      "ph2 fullTitle": "Fase 2: Transferência",
+      "ph2 subtitle": "Alice → Carol",
+      "ph2 description":
+        "Alice envia o token privadamente para Carol, fora da cadeia (off-chain)",
+        "ph2 st1": "Alice envia o token válido para Carol",
+        "ph2 st2": "A transferência acontece privadamente (por exemplo, via chat)",
+        "ph2 st3": "Nenhuma blockchain necessária - instantâneo e privado",
+
+      "ph3 title": "Resgate",
+      "ph3 fullTitle": "Fase 3: Resgate (Redemption)",
+      "ph3 subtitle": "Carol & Bob",
+      "ph3 description":
+        "Carol resgata o token com Bob e recebe fundos",      
+        "ph3 st1": "Carol envia o token de volta para Bob",
+        "ph3 st2": "Bob verifica se o token não foi gasto",
+        "ph3 st3": "Bob verifica o banco de dados de segredos gastos",
+        "ph3 st4": "Carol recebe fundos, o token é marcado como gasto",
+        "ph3 st5": "Bob não sabe que o token veio de Alice (PRIVACIDADE!)"
+
+  },
+  "LocaleSwitcher": {
+    "label": "Mudar idioma",
+    "locale": "{locale, select, en {English} es {Español} fr {Français} de {Deutsch} it {Italiano} zh {Chinese} pt {Português} other {Unbekannt}}"
+  },
+  "UiAlice": {
+    "role": "Quer enviar dinheiro privadamente"
+  },
+  "UiBob": {
+    "role": "O operador da cunhagem"
+  },
+  "UiCarol": {
+    "role": "Recebe o pagamento"
+  }
+}

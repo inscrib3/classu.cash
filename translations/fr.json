@@ -1,0 +1,61 @@
+{
+  "HomePage": {
+    "title": "classu.cash",
+    "subtitle": "Cashu est de l'argent numérique préservant la confidentialité utilisant des signatures aveugles",
+    "Meet the Characters": "Rencontrez les Personnages",
+    "Key Concept: Blind Signatures": "Concept Clé : Signatures Aveugles",
+    "Bob signs tokens": "Bob signe les jetons sans en voir le contenu, assurant la confidentialité. Le jeton est une combinaison du secret d'Alice + la signature de Bob. Lorsque Carol le réclame, Bob peut vérifier qu'il est valide, mais ne peut pas le relier à Alice.",
+    "Select a Phase": "Sélectionnez une Phase",
+    "PRIVACY: Bob": "CONFIDENTIALITÉ : Bob ne sait pas que le jeton de Carol provient d'Alice !",
+    "Powered": "Propulsé avec ❤️ par",
+    "Website": "Site Web",
+    "Docs": "Documentation",
+    "Wallet": "Portefeuille",
+    "Phase": "Phase",
+
+
+      "ph1 title": "Frappe",
+      "ph1 fullTitle": "Phase 1 : Frappe (Minting)",
+      "ph1 subtitle": "Alice & Bob",
+      "ph1 description":
+        "Alice crée un message secret et demande à Bob (l'opérateur de la frappe) de le signer aveuglément",      
+        "ph1 st1": "Alice crée un message secret",
+        "ph1 st2": "Alice 'aveugle' le secret",
+        "ph1 st3": "Bob signe le message aveuglé (sans le voir)",
+        "ph1 st4": "Alice 'désaveugle' pour obtenir un jeton valide",
+
+      "ph2 title": "Transfert",
+      "ph2 fullTitle": "Phase 2 : Transfert",
+      "ph2 subtitle": "Alice → Carol",
+      "ph2 description":
+        "Alice envoie le jeton à Carol en privé, hors chaîne (off-chain)",
+        "ph2 st1": "Alice envoie le jeton valide à Carol",
+        "ph2 st2": "Le transfert se fait en privé (par exemple, via chat)",
+        "ph2 st3": "Pas besoin de blockchain - instantané et privé",
+
+      "ph3 title": "Remboursement",
+      "ph3 fullTitle": "Phase 3 : Remboursement (Redemption)",
+      "ph3 subtitle": "Carol & Bob",
+      "ph3 description":
+        "Carol rembourse le jeton auprès de Bob et reçoit des fonds",      
+        "ph3 st1": "Carol renvoie le jeton à Bob",
+        "ph3 st2": "Bob vérifie que le jeton n'a pas été dépensé",
+        "ph3 st3": "Bob vérifie la base de données des secrets dépensés",
+        "ph3 st4": "Carol reçoit des fonds, le jeton est marqué comme dépensé",
+        "ph3 st5": "Bob ne sait pas que le jeton provient d'Alice (CONFIDENTIALITÉ !)"
+
+  },
+  "LocaleSwitcher": {
+    "label": "Changer de langue",
+    "locale": "{locale, select, en {English} es {Español} fr {Français} de {Deutsch} it {Italiano} zh {Chinese} pt {Português} other {Inconnu}}"
+  },
+  "UiAlice": {
+    "role": "Veut envoyer de l'argent en privé"
+  },
+  "UiBob": {
+    "role": "L'opérateur de la frappe"
+  },
+  "UiCarol": {
+    "role": "Reçoit le paiement"
+  }
+}

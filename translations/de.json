@@ -47,7 +47,7 @@
   },
   "LocaleSwitcher": {
     "label": "Sprache ändern",
-    "locale": "{locale, select, en {English} es {Espanol} de {Deutsch} it {Italiano} zh {Chinese} other {Unbekannt}}"
+    "locale": "{locale, select, en {English} es {Español} fr {Français} de {Deutsch} it {Italiano} zh {Chinese} pt {Português} other {Unbekannt}}"
   },
   "UiAlice": {
     "role": "Möchte Geld privat senden"
