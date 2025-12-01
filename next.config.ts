@@ -10,5 +10,5 @@ const nextConfig: NextConfig = {
     turbopack: {},
 };
 
-const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
+const withNextIntl = createNextIntlPlugin('./i18n.ts');
 export default withNextIntl(nextConfig);
