@@ -9,8 +9,8 @@ export default function Navigation() {
     <div className="bg-purple-900">
       <nav className="container flex justify-between text-white">
         <div>
-          {/* <NavigationLink href="/">{t('home')}</NavigationLink> */}
-          {/* <NavigationLink href="/pathnames">{t('pathnames')}</NavigationLink> */}
+          <NavigationLink href="/">{t('home')}</NavigationLink>
+          <NavigationLink href="/nut00">NUT-00</NavigationLink>
         </div>
         <LocaleSwitcher />
       </nav>
