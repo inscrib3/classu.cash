@@ -47,7 +47,7 @@
   },
   "LocaleSwitcher": {
     "label": "更改语言",
-    "locale": "{locale, select, en {English} es {Espanol} de {Deutsch} it {Italiano} zh {Chinese} other {Unbekannt}}"
+    "locale": "{locale, select, en {English} es {Español} fr {Français} de {Deutsch} it {Italiano} zh {Chinese} pt {Português} other {Unbekannt}}"
   },
   "UiAlice": {
     "role": "想要私密地发送钱"
