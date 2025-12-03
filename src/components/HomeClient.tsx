@@ -12,9 +12,8 @@ import {
   Zap,
 } from "lucide-react";
 import { ArrowStep } from "./icons/ArrowStep";
-import { Alice } from "./Alice";
-import { Bob } from "./Bob";
-import { Carol } from "./Carol";
+import { Header } from "./Header";
+import { CharactersSection } from "./CharactersSection";
 import { SecretStep } from "./steps/SecretStep";
 import { BlindedStep } from "./steps/BlindedStep";
 import { TokenStep } from "./steps/TokenStep";
@@ -22,7 +21,11 @@ import { PrivateStep } from "./steps/PrivateStep";
 import { CheckDBStep } from "./steps/CheckDBStep";
 import { PaidStep } from "./steps/PaidStep";
 
-import {useTranslations} from 'next-intl';
+import { Alice } from "./Alice";
+import { Bob } from "./Bob";
+import { Carol } from "./Carol";
+
+import { useTranslations } from "next-intl";
 
 const Home = () => {
   const t = useTranslations('HomePage');
@@ -90,34 +93,10 @@ const Home = () => {
     <div className="min-h-screen bg-linear-to-br from-purple-900 via-blue-900 to-indigo-900 text-white">
       <div className="w-full max-w-7xl mx-auto px-4 py-8 md:px-6 md:py-12">
         {/* Header */}
-        <header className="text-center mb-12">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-linear-to-r from-blue-400 via-violet-400 to-pink-400">
-            {t('title')}
-          </h1>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-            {t('subtitle')}
-          </p>
-        </header>
+        <Header />
 
         {/* Characters Section */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-6 text-center md:text-left">
-            {t('Meet the Characters')}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-purple-400/50 hover:scale-105 transition-transform">
-              <Alice />
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-blue-400/50 hover:scale-105 transition-transform">
-              <Bob />
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-pink-400/50 hover:scale-105 transition-transform">
-              <Carol />
-            </div>
-          </div>
-        </section>
+        <CharactersSection />
 
         {/* Key Concept */}
         <section className="bg-linear-to-r from-yellow-600/20 to-orange-600/20 rounded-2xl p-6 md:p-8 border border-yellow-500/50 mb-12">
