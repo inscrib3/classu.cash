@@ -10,7 +10,7 @@ export const Nut00: React.FC = () => {
   const t = useTranslations('nut00');
 
   const [activeSection, setActiveSection] = useState('overview');
-  const [selectedStep, setSelectedStep] = useState(null);
+  const [selectedStep, setSelectedStep] = useState<number | null>(null);
 
   const sections = [
     { id: 'overview', label: 'Overview', icon: '📚' },
