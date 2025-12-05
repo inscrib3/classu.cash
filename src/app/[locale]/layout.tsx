@@ -6,6 +6,7 @@ import { routing } from "@/src/i18n/routing";
 import "@/src/app/globals.css";
 import { notFound } from "next/navigation";
 import LocaleSwitcher from "@/src/components/LocaleSwitcher";
+import { Footer } from "@/src/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -61,6 +62,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                 <LocaleSwitcher />
               </div>
               {children}
+              <Footer />
             </div>
           </div>
         </body>
