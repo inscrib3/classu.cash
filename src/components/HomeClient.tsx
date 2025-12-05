@@ -26,8 +26,10 @@ import { Bob } from "./Bob";
 import { Carol } from "./Carol";
 
 import { useTranslations } from "next-intl";
+import { useRouter } from "@/src/i18n/navigation";
 
 const Home = () => {
+  const router = useRouter();
   const t = useTranslations("HomePage");
   const [activePhase, setActivePhase] = useState(0);
   const [animationStep, setAnimationStep] = useState(0);
@@ -323,8 +325,31 @@ const Home = () => {
         </section>
       </div>
 
+      {/* Nuts Selection */}
+      <section className="mb-8">
+        <h2 className="text-2xl font-bold mb-6 text-center">
+          {t("Nuts to Explore")}
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <button
+            onClick={() => router.push("/nut00")}
+            className={
+              "cursor-pointer bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-pink-400/50 hover:scale-105 transition-transform"
+            }
+          >
+            <div className="text-2xl font-bold mb-2">{t("NUT 00")}</div>
+            <div className="text-lg font-semibold">
+              {t("Notation, Utilization, and Terminology")}
+            </div>
+          </button>
+        </div>
+      </section>
+
       {/* Phase Selection */}
       <section className="mb-8">
+        <h2 className="text-2xl font-bold mb-6 text-center">
+          {t("Useful Links")}
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <button
             onClick={() => window.open("https://cashu.space", "_blank")}
