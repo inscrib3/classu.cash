@@ -4,12 +4,16 @@
   },
   "LocaleSwitcher": {
     "label": "Change language",
-    "locale": "{locale, select, en {English} es {Español} fr {Français} de {Deutsch} it {Italiano} zh {中文} pt {Português} ru {Русский} tr {Türkçe} ko {한국인}  other {Unbekannt}}"
+    "locale": "{locale, select, en {English} es {Español} fr {Français} de {Deutsch} it {Italiano} zh {中文} pt {Português} ru {Русский} tr {Türkçe} ko {한국인}  th {แบบไทย} ja {日本語} el {ελληνικά} sv {Svenska} other {Unbekannt}}"
   },
   "HomePage": {
     "Nuts to Explore": "Nuts to Explore",
     "Useful Links": "Useful Links",
     "Overview": "Overview",
+    "BDHKE Protocol": "BDHKE Protocol",
+    "Key Variables": "Key Variables",
+    "Data Models": "Data Models",
+
     "Overview of Cashu and its Concepts": "Overview of Cashu and its Concepts",
     "NUT 00": "NUT 00",
     "Notation, Utilization, and Terminology": "Notation, Utilization, and Terminology",
@@ -62,13 +66,18 @@
   },
   "nut00": {
     "subtitle": "Notation, Utilization, and Terminology",
+    "MANDATORY": "MANDATORY",
+    "Overview": "Overview",
+    "BDHKE Protocol": "BDHKE Protocol",
+    "Key Variables": "Key Variables",
+    "Data Models": "Data Models",
+
     "bdhkeSt_1_actor": "Bob (Mint)",
     "bdhkeSt_1_action": "Publishes Public Key",
     "bdhkeSt_1_detail": "K = k·G",
     "bdhkeSt_1_description": "The mint publishes its public key K, derived from private key k and generator point G",
     "bdhkeSt_2_actor": "Alice (User)",
     "bdhkeSt_2_action": "Creates Secret & Blinds",
-    "bdhkeSt_2_detail": "Y = hash_to_curve(x), B_ = Y + r·G",
     "bdhkeSt_2_description": "Alice picks a secret x, hashes it to curve point Y, then blinds it with random factor r",
     "bdhkeSt_3_actor": "Alice → Bob",
     "bdhkeSt_3_action": "Sends Blinded Point",
@@ -92,7 +101,7 @@
     "bdhkeSt_7_description": "Alice can now send the pair (secret, signature) as a token to Carol",
     "bdhkeSt_8_actor": "Carol → Bob",
     "bdhkeSt_8_action": "Redeems Token",
-    "bdhkeSt_8_detail": "Bob verifies: k·hash_to_curve(x) == C",
+    "bdhkeSt_8_detail": "Bob verifies",
     "bdhkeSt_8_description": "Bob verifies the token is valid and marks the secret as spent",
     "v_common_name": "Generator Point",
     "v_common_desc": "Elliptic curve generator point (secp256k1)",
@@ -105,7 +114,6 @@
     "v_alice_x_name": "Secret Message",
     "v_alice_x_desc": "Random UTF-8 string (recommended: 64 char hex)",
     "v_alice_Y_name": "Hashed Point",
-    "v_alice_Y_desc": "Y = hash_to_curve(x)",
     "v_alice_r_name": "Blinding Factor",
     "v_alice_r_desc": "Random value to blind the secret",
     "v_alice_B__name": "Blinded Message",
@@ -152,6 +160,7 @@
     "V4 Token Structure": "V4 Token Structure",
     "Binary Format (NFC)": "Binary Format (NFC)",
     "For NFC transmission": "For NFC transmission, tokens use a binary prefix",
-    "Part of the Cashu Protocol Specification": "Part of the Cashu Protocol Specification"
+    "Part of the Cashu Protocol Specification": "Part of the Cashu Protocol Specification",
+    "Current Format": "Current Format"
   }
 }
