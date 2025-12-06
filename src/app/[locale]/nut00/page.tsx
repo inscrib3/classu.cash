@@ -14,11 +14,11 @@ export const Nut00: React.FC = () => {
   const [selectedStep, setSelectedStep] = useState<number | null>(null);
 
   const sections = [
-    { id: "overview", label: "Overview", icon: "📚" },
-    { id: "bdhke", label: "BDHKE Protocol", icon: "🔐" },
-    { id: "variables", label: "Key Variables", icon: "🔑" },
-    { id: "models", label: "Data Models", icon: "📦" },
-    { id: "tokens", label: "Token Format", icon: "🎫" },
+    { id: "overview", label: t("Overview"), icon: "📚" },
+    { id: "bdhke", label: t("BDHKE Protocol"), icon: "🔐" },
+    { id: "variables", label: t("Key Variables"), icon: "🔑" },
+    { id: "models", label: t("Data Models"), icon: "📦" },
+    { id: "tokens", label: t("Token Format"), icon: "🎫" },
   ];
 
   const bdhkeSteps = [
@@ -33,7 +33,7 @@ export const Nut00: React.FC = () => {
       num: 2,
       actor: t("bdhkeSt_2_actor"),
       action: t("bdhkeSt_2_action"),
-      detail: t("bdhkeSt_2_detail"),
+      detail: "Y = hash_to_curve(x), B_ = Y + r·G",
       description: t("bdhkeSt_2_description"),
     },
     {
@@ -75,7 +75,7 @@ export const Nut00: React.FC = () => {
       num: 8,
       actor: t("bdhkeSt_8_actor"),
       action: t("bdhkeSt_8_action"),
-      detail: t("bdhkeSt_8_detail"),
+      detail: t("bdhkeSt_8_detail")+": k·hash_to_curve(x) == C",
       description: t("bdhkeSt_8_description"),
     },
   ];
@@ -91,7 +91,7 @@ export const Nut00: React.FC = () => {
     ],
     alice: [
       { symbol: "x", name: t("v_alice_x_name"), desc: t("v_alice_x_desc") },
-      { symbol: "Y", name: t("v_alice_Y_name"), desc: t("v_alice_Y_desc") },
+      { symbol: "Y", name: t("v_alice_Y_name"), desc: "Y = hash_to_curve(x)" },
       { symbol: "r", name: t("v_alice_r_name"), desc: t("v_alice_r_desc") },
       { symbol: "B_", name: t("v_alice_B__name"), desc: t("v_alice_B__desc") },
       { symbol: "C", name: t("v_alice_c_name"), desc: t("v_alice_c_desc") },
@@ -388,7 +388,7 @@ export const Nut00: React.FC = () => {
             <span className="bg-purple-500 text-white px-2 py-1 rounded font-mono text-sm">
               V4
             </span>
-            <h3 className="font-bold text-black">Current Format</h3>
+            <h3 className="font-bold text-black">{t('Current Format')}</h3>
           </div>
           <ul className="space-y-2 text-sm text-gray-600">
             <li>
@@ -451,7 +451,7 @@ export const Nut00: React.FC = () => {
         </p>
         <div className="flex items-center justify-center gap-2 mt-3">
           <span className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-            MANDATORY
+            {t("MANDATORY")}
           </span>
         </div>
       </div>
