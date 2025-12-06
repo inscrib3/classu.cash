@@ -2,7 +2,7 @@
 #
 # To get started with Next.js see: https://nextjs.org/docs/getting-started
 #
-name: Deploy Classu to Pages
+name: Deploy https://classu.cash to Pages
 
 on:
   # Runs on pushes targeting the default branch
