@@ -7,6 +7,13 @@
     "locale": "{locale, select, en {English} es {Español} fr {Français} de {Deutsch} it {Italiano} zh {中文} pt {Português} ru {Русский} tr {Türkçe} ko {한국인}  other {Unbekannt}}"
   },
   "HomePage": {
+    "Nuts to Explore": "Nuts to Explore",
+    "Useful Links": "Useful Links",
+    "Overview": "Overview",
+    "Overview of Cashu and its Concepts": "Overview of Cashu and its Concepts",
+    "NUT 00": "NUT 00",
+    "Notation, Utilization, and Terminology": "Notation, Utilization, and Terminology",
+
     "title": "classu.cash",
     "subtitle": "Cashu is privacy-preserving digital cash using blind signatures",
     "Meet the Characters": "Meet the Characters",
