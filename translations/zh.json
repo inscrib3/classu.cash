@@ -3,6 +3,13 @@
     "home": "主页"
   },
   "HomePage": {
+    "Nuts to Explore": "Nuts to Explore",
+    "Useful Links": "Useful Links",
+    "Overview": "Overview",
+    "Overview of Cashu and its Concepts": "Overview of Cashu and its Concepts",
+    "NUT 00": "NUT 00",
+    "Notation, Utilization, and Terminology": "Notation, Utilization, and Terminology",
+
     "title": "classu.cash",
     "subtitle": "Cashu 是使用盲签名保护隐私的数字现金",
     "Meet the Characters": "认识角色",

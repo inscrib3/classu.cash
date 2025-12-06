@@ -7,6 +7,13 @@
     "locale": "{locale, select, en {English} es {Español} fr {Français} de {Deutsch} it {Italiano} zh {中文} pt {Português} ru {Русский} tr {Türkçe} ko {한국인}  other {Unbekannt}}"
   },
   "HomePage": {
+    "Nuts to Explore": "Nuts to Explore",
+    "Useful Links": "Useful Links",
+    "Overview": "Overview",
+    "Overview of Cashu and its Concepts": "Overview of Cashu and its Concepts",
+    "NUT 00": "NUT 00",
+    "Notation, Utilization, and Terminology": "Notation, Utilization, and Terminology",
+
     "title": "classu.cash",
     "subtitle": "Cashu는 블라인드 서명을 사용하는 개인 정보 보호 디지털 현금입니다",
     "Meet the Characters": "등장인물 소개",

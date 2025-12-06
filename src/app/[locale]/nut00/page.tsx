@@ -121,7 +121,7 @@ export const Nut00: React.FC = () => {
 
   const renderBDHKE = () => (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-gray-400 mb-4">
+      <h2 className="text-2xl font-bold text-white mb-4">
         {t("Blind Diffie-Hellmann Key Exchange Protocol")}
       </h2>
 
@@ -129,7 +129,7 @@ export const Nut00: React.FC = () => {
         {bdhkeSteps.map((step) => (
           <div
             key={step.num}
-            className={`bg-white rounded-lg border-2 transition-all cursor-pointer ${
+            className={`bg-linear-to-r from-cyan-500/20 to-blue-500/20 border-l-4 border-cyan-400 cursor-pointer ${
               selectedStep === step.num
                 ? "border-blue-500 shadow-lg"
                 : "border-gray-200 hover:border-blue-300"
@@ -144,11 +144,11 @@ export const Nut00: React.FC = () => {
               </div>
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="font-semibold text-gray-700">
+                  <span className="font-semibold text-white">
                     {step.actor}
                   </span>
                   <span className="text-gray-400">→</span>
-                  <span className="text-gray-600">{step.action}</span>
+                  <span className="text-white">{step.action}</span>
                 </div>
                 <code className="text-sm bg-gray-400 px-2 py-1 rounded">
                   {step.detail}
@@ -162,7 +162,7 @@ export const Nut00: React.FC = () => {
             </div>
             {selectedStep === step.num && (
               <div className="px-4 pb-4 pt-2 border-t border-gray-100">
-                <p className="text-gray-600">{step.description}</p>
+                <p className="text-white">{step.description}</p>
               </div>
             )}
           </div>
@@ -181,7 +181,7 @@ export const Nut00: React.FC = () => {
 
   const renderVariables = () => (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-gray-400 mb-4">
+      <h2 className="text-2xl font-bold text-white mb-4">
         {t("Cryptographic Variables")}
       </h2>
 
@@ -252,7 +252,7 @@ export const Nut00: React.FC = () => {
 
   const renderModels = () => (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-gray-400 mb-4">Data Models</h2>
+      <h2 className="text-2xl font-bold text-white mb-4">Data Models</h2>
 
       <div className="bg-white rounded-lg border-2 border-purple-200 overflow-hidden">
         <div className="bg-purple-500 text-white p-4">
@@ -348,7 +348,7 @@ export const Nut00: React.FC = () => {
 
   const renderTokens = () => (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-gray-400 mb-4">
+      <h2 className="text-2xl font-bold text-white mb-4">
         {t("Token Serialization")}
       </h2>
 
@@ -371,7 +371,7 @@ export const Nut00: React.FC = () => {
             <span className="bg-blue-500 text-white px-2 py-1 rounded font-mono text-sm">
               V3
             </span>
-            <h3 className="font-bold">{t("Legacy Format")}</h3>
+            <h3 className="font-bold text-black">{t("Legacy Format")}</h3>
           </div>
           <ul className="space-y-2 text-sm text-gray-600">
             <li>
@@ -388,7 +388,7 @@ export const Nut00: React.FC = () => {
             <span className="bg-purple-500 text-white px-2 py-1 rounded font-mono text-sm">
               V4
             </span>
-            <h3 className="font-bold">Current Format</h3>
+            <h3 className="font-bold text-black">Current Format</h3>
           </div>
           <ul className="space-y-2 text-sm text-gray-600">
             <li>
@@ -457,7 +457,7 @@ export const Nut00: React.FC = () => {
       </div>
 
       {/* Navigation */}
-      <div className="bg-white rounded-lg shadow-lg p-2 mb-6 flex flex-wrap gap-2">
+      <div className="rounded-lg p-2 mb-6 flex flex-wrap gap-2">
         {sections.map((section) => (
           <button
             key={section.id}
@@ -468,7 +468,7 @@ export const Nut00: React.FC = () => {
             className={`cursor-pointer flex-1 min-w-[150px] px-4 py-3 rounded-lg font-semibold transition-all ${
               activeSection === section.id
                 ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-md"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                : "cursor-pointer p-6 rounded-xl border-2 transition-all transform hover:scale-105 text-white"
             }`}
           >
             <span className="mr-2">{section.icon}</span>
