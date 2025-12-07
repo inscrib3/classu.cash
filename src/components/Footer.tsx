@@ -39,6 +39,17 @@ export const Footer: React.FC = () => {
               {t("Notation, Utilization, and Terminology")}
             </div>
           </button>
+          <button
+            onClick={() => router.push("/nut01")}
+            className={
+              "cursor-pointer bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-pink-400/50 hover:scale-105 transition-transform"
+            }
+          >
+            <div className="text-2xl font-bold mb-2">{t("NUT 01")}</div>
+            <div className="text-lg font-semibold">
+              {t("Mint public key exchange")}
+            </div>
+          </button>
         </div>
       </section>
 
