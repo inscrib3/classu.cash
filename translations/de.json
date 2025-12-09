@@ -190,7 +190,7 @@
     "keyset_generation_title": "Keyset-Generierung",
     "keyset_generation_detail": "Keysets werden vom Mint generiert und durch eine 'id' identifiziert, die aus seinen öffentlichen Schlüsseln berechenbar ist (NUT-02).",
     "keys_map_title": "Keys-Map-Format",
-    "keys_map_detail": "Keysets sind Maps der Form {<Betrag_i> : <Mint_Pubkey_i>}. Der öffentliche Schlüssel MUSS das komprimierte Secp256k1-Format verwenden.",
+    "keys_map_detail": "Keysets sind Maps der Form [Betrag_i : Mint_Pubkey_i]. Der öffentliche Schlüssel MUSS das komprimierte Secp256k1-Format verwenden.",
     "example_sat_title": "Beispielantwort (Sat)",
     "example_usd_title": "Beispielantwort (USD - Kleinere Einheit: 2)",
     "example_usd_key_1": "1 Cent (0.01 USD)",

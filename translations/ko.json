@@ -190,7 +190,7 @@
     "keyset_generation_title": "Keyset 생성",
     "keyset_generation_detail": "Keyset은 민트에 의해 생성되며, 그 공개 키에서 계산 가능한 'id'로 식별됩니다 (NUT-02).",
     "keys_map_title": "키 맵 형식",
-    "keys_map_detail": "Keyset은 {<금액_i> : <민트_공개_키_i>} 형식의 맵입니다. 공개 키는 압축된 Secp256k1 형식을 사용해야 합니다.",
+    "keys_map_detail": "Keyset은 [금액_i : 민트_공개_키_i] 형식의 맵입니다. 공개 키는 압축된 Secp256k1 형식을 사용해야 합니다.",
     "example_sat_title": "응답 예시 (sat)",
     "example_usd_title": "응답 예시 (usd - 마이너 단위: 2)",
     "example_usd_key_1": "1센트 (0.01 USD)",

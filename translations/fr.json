@@ -190,7 +190,7 @@
     "keyset_generation_title": "Génération de Keyset",
     "keyset_generation_detail": "Les Keysets sont générés par la Monnaie, identifiés par un 'id' calculable à partir de ses clés publiques (NUT-02).",
     "keys_map_title": "Format de la Carte de Clés",
-    "keys_map_detail": "Les Keysets sont des cartes de la forme {<montant_i> : <clé_publique_mint_i>}. La clé publique DOIT utiliser le format Secp256k1 compressé.",
+    "keys_map_detail": "Les Keysets sont des cartes de la forme [montant_i : clé_publique_mint_i]. La clé publique DOIT utiliser le format Secp256k1 compressé.",
     "example_sat_title": "Exemple de Réponse (sat)",
     "example_usd_title": "Exemple de Réponse (usd - Unité Mineure: 2)",
     "example_usd_key_1": "1 cent (0.01 USD)",

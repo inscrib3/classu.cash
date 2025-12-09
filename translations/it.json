@@ -190,7 +190,7 @@
     "keyset_generation_title": "Generazione del Keyset",
     "keyset_generation_detail": "I Keyset sono generati dalla Zecca, identificati da un 'id' calcolabile dalle sue chiavi pubbliche (NUT-02).",
     "keys_map_title": "Formato della Mappa delle Chiavi",
-    "keys_map_detail": "I Keyset sono mappe del tipo {<importo_i> : <chiave_pubblica_mint_i>}. La chiave pubblica DEVE utilizzare il formato Secp256k1 compresso.",
+    "keys_map_detail": "I Keyset sono mappe del tipo [importo_i : chiave_pubblica_mint_i]. La chiave pubblica DEVE utilizzare il formato Secp256k1 compresso.",
     "example_sat_title": "Esempio di Risposta (sat)",
     "example_usd_title": "Esempio di Risposta (usd - Unità Minore: 2)",
     "example_usd_key_1": "1 centesimo (0.01 USD)",

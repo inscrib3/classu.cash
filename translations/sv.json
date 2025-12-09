@@ -190,7 +190,7 @@
     "keyset_generation_title": "Keyset-Generering",
     "keyset_generation_detail": "Keysets genereras av minten, identifieras av ett 'id' som kan beräknas från dess publika nycklar (NUT-02).",
     "keys_map_title": "Format för Nyckelkarta",
-    "keys_map_detail": "Keysets är kartor i formatet {<belopp_i> : <mint_pubkey_i>}. Den publika nyckeln MÅSTE använda det komprimerade Secp256k1-formatet.",
+    "keys_map_detail": "Keysets är kartor i formatet [belopp_i : mint_pubkey_i]. Den publika nyckeln MÅSTE använda det komprimerade Secp256k1-formatet.",
     "example_sat_title": "Exempelsvar (sat)",
     "example_usd_title": "Exempelsvar (usd - Minsta Enhet: 2)",
     "example_usd_key_1": "1 cent (0.01 USD)",

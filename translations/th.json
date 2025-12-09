@@ -190,7 +190,7 @@
     "keyset_generation_title": "การสร้าง Keyset",
     "keyset_generation_detail": "Keysets ถูกสร้างโดย Mint และระบุด้วย 'id' ที่สามารถคำนวณได้จากคีย์สาธารณะ (NUT-02)",
     "keys_map_title": "รูปแบบแผนที่คีย์",
-    "keys_map_detail": "Keysets คือแผนที่ในรูปแบบ {<amount_i> : <mint_pubkey_i>} คีย์สาธารณะจะต้องใช้รูปแบบ Secp256k1 แบบบีบอัด",
+    "keys_map_detail": "Keysets คือแผนที่ในรูปแบบ [amount_i : mint_pubkey_i] คีย์สาธารณะจะต้องใช้รูปแบบ Secp256k1 แบบบีบอัด",
     "example_sat_title": "ตัวอย่างคำตอบ (sat)",
     "example_usd_title": "ตัวอย่างคำตอบ (usd - หน่วยย่อย: 2)",
     "example_usd_key_1": "1 เซนต์ (0.01 USD)",

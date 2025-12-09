@@ -190,7 +190,7 @@
     "keyset_generation_title": "Keyset 生成",
     "keyset_generation_detail": "Keyset 由 Mint 生成，並由一個可從其公鑰計算的 'id' 識別（NUT-02）。",
     "keys_map_title": "密鑰地圖格式",
-    "keys_map_detail": "Keyset 是 {<amount_i> : <mint_pubkey_i>} 格式的地圖。公鑰**必須**使用壓縮的 Secp256k1 格式。",
+    "keys_map_detail": "Keyset 是 [amount_i : mint_pubkey_i] 格式的地圖。公鑰**必須**使用壓縮的 Secp256k1 格式。",
     "example_sat_title": "範例響應 (sat)",
     "example_usd_title": "範例響應 (usd - 小數單位: 2)",
     "example_usd_key_1": "1 cent (0.01 USD)",

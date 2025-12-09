@@ -190,7 +190,7 @@
     "keyset_generation_title": "Generación de Keyset",
     "keyset_generation_detail": "Los Keysets son generados por la Casa de Moneda, identificados por un 'id' computable a partir de sus claves públicas (NUT-02).",
     "keys_map_title": "Formato del Mapa de Claves",
-    "keys_map_detail": "Los Keysets son mapas de la forma {<monto_i> : <clave_pública_mint_i>}. La clave pública DEBE usar el formato Secp256k1 comprimido.",
+    "keys_map_detail": "Los Keysets son mapas de la forma [monto_i : clave_pública_mint_i]. La clave pública DEBE usar el formato Secp256k1 comprimido.",
     "example_sat_title": "Ejemplo de Respuesta (sat)",
     "example_usd_title": "Ejemplo de Respuesta (usd - Unidad Menor: 2)",
     "example_usd_key_1": "1 centavo (0.01 USD)",
