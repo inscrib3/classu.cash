@@ -27,7 +27,7 @@ export const ClosingPanel: React.FC<ClosingPanelProps> = ({
         </code>
       )}
 
-      {note && <p className="text-sm text-gray-600 mt-2">{note}</p>}
+      {note && <div className="text-sm text-gray-600 mt-2">{note}</div>}
     </div>
   );
 };
