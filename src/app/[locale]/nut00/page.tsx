@@ -2,8 +2,15 @@
 
 import React, { useState } from "react";
 import { Lock, CheckCircle, Eye, EyeOff } from "lucide-react";
+import { PanelSection } from "@/src/components/PanelSection";
+import { BoxSection } from "@/src/components/BoxSection";
+import { NutHeader } from "@/src/components/NutHeader";
+import { NutNavigation } from "@/src/components/NutNavigation";
 
 import { CharactersSection } from "@/src/components/CharactersSection";
+import { OverviewSection } from "@/src/components/OverviewSection";
+import { SectionHeader } from "@/src/components/SectionHeader";
+import ClosingPanel from "@/src/components/ClosingPanel";
 
 import { useTranslations } from "next-intl";
 
@@ -98,27 +105,6 @@ export const Nut00: React.FC = () => {
     ],
   };
 
-  const renderOverview = () => (
-    <div className="space-y-6">
-      <div className="bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg p-8 text-white">
-        <h2 className="text-3xl font-bold mb-4">
-          NUT-00: {t("Protocol Foundation")}
-        </h2>
-        <p className="text-lg opacity-90">{t("This specification defines")}</p>
-      </div>
-
-      <CharactersSection />
-
-      <div className="border-l-4 border-blue-500 p-6 rounded">
-        <h3 className="font-bold text-lg mb-2 flex items-center gap-2">
-          <Lock className="w-5 h-5" />
-          {t("Key Innovation: Blind Signatures")}
-        </h3>
-        <p className="text-gray-400">{t("The protocol uses")}</p>
-      </div>
-    </div>
-  );
-
   const renderBDHKE = () => (
     <div className="space-y-6">
       <h2 className="text-2xl font-bold text-white mb-4">
@@ -169,13 +155,11 @@ export const Nut00: React.FC = () => {
         ))}
       </div>
 
-      <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded">
-        <h3 className="font-bold text-lg mb-2 flex items-center gap-2 text-gray-700">
-          <CheckCircle className="w-5 h-5" />
-          {t("Privacy Guarantee")}
-        </h3>
-        <p className="text-gray-700">{t("Bob signs the token")}</p>
-      </div>
+      <ClosingPanel
+        title={t("Privacy Guarantee")}
+        description={t("Bob signs the token")}
+      />
+      
     </div>
   );
 
@@ -185,12 +169,13 @@ export const Nut00: React.FC = () => {
         {t("Cryptographic Variables")}
       </h2>
 
-      <div className="bg-gray-50 rounded-lg p-6">
-        <h3 className="font-bold text-lg mb-3 text-gray-700">Common</h3>
-        <div className="space-y-2">
-          {variables.common.map((v, i) => (
+      <BoxSection
+        title="Common"
+        className="bg-gray-50"
+      >
+        {variables.common.map((v, i) => (
             <div key={i} className="flex items-start gap-3">
-              <code className="bg-gray-400 px-3 py-1 rounded font-mono text-sm border">
+              <code className="bg-gray-400 text-white px-3 py-1 rounded font-mono text-sm border">
                 {v.symbol}
               </code>
               <div>
@@ -199,54 +184,52 @@ export const Nut00: React.FC = () => {
               </div>
             </div>
           ))}
-        </div>
-      </div>
+      </BoxSection>
 
-      <div className="bg-blue-50 rounded-lg p-6">
-        <h3 className="font-bold text-lg mb-3 text-blue-900">Bob (Mint)</h3>
-        <div className="space-y-2">
-          {variables.bob.map((v, i) => (
-            <div key={i} className="flex items-start gap-3">
-              <code className="bg-gray-400 px-3 py-1 rounded font-mono text-sm border border-blue-200">
-                {v.symbol}
-              </code>
-              <div>
-                <div className="font-semibold text-gray-600">{v.name}</div>
-                <div className="text-sm text-gray-600">{v.desc}</div>
-              </div>
+      <BoxSection
+        title="Bob (Mint)"
+        className="bg-blue-50"
+      >
+        {variables.bob.map((v, i) => (
+          <div key={i} className="flex items-start gap-3">
+            <code className="bg-gray-400 text-white px-3 py-1 rounded font-mono text-sm border border-blue-200">
+              {v.symbol}
+            </code>
+            <div>
+              <div className="font-semibold text-gray-600">{v.name}</div>
+              <div className="text-sm text-gray-600">{v.desc}</div>
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
+        ))}        
+      </BoxSection>
 
-      <div className="bg-purple-50 rounded-lg p-6">
-        <h3 className="font-bold text-lg mb-3 text-purple-900">Alice (User)</h3>
-        <div className="space-y-2">
-          {variables.alice.map((v, i) => (
-            <div key={i} className="flex items-start gap-3">
-              <code className="bg-gray-400 px-3 py-1 rounded font-mono text-sm border border-purple-200">
-                {v.symbol}
-              </code>
-              <div>
-                <div className="font-semibold text-gray-600">{v.name}</div>
-                <div className="text-sm text-gray-600">{v.desc}</div>
-              </div>
+      <BoxSection
+        title="Alice (User)"
+        className="bg-purple-50"
+      >
+        {variables.alice.map((v, i) => (
+          <div key={i} className="flex items-start gap-3">
+            <code className="bg-gray-400 text-white px-3 py-1 rounded font-mono text-sm border border-purple-200">
+              {v.symbol}
+            </code>
+            <div>
+              <div className="font-semibold text-gray-600">{v.name}</div>
+              <div className="text-sm text-gray-600">{v.desc}</div>
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
+        ))}
+      </BoxSection>
 
-      <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded">
-        <h3 className="font-bold mb-2 text-gray-600">hash_to_curve Function</h3>
-        <p className="text-gray-700 mb-2">{t("Deterministically maps a")}:</p>
-        <code className="block bg-gray-400 p-3 rounded text-sm overflow-x-auto">
-          Y = PublicKey('02' || SHA256(msg_hash || counter))
-        </code>
-        <p className="text-sm text-gray-600 mt-2">
-          {t("Uses domain separator")}:{" "}
-          <code>b"Secp256k1_HashToCurve_Cashu_"</code>
-        </p>
-      </div>
+      <ClosingPanel
+        title="hash_to_curve Function"
+        description={t("Deterministically maps a") + ":"}
+        codeSnippet={`Y = PublicKey('02' || SHA256(msg_hash || counter))`}
+        note={
+          <>
+            {t("Uses domain separator")}: <code>b"Secp256k1_HashToCurve_Cashu_"</code>
+          </>
+        }
+      />
     </div>
   );
 
@@ -254,11 +237,11 @@ export const Nut00: React.FC = () => {
     <div className="space-y-6">
       <h2 className="text-2xl font-bold text-white mb-4">Data Models</h2>
 
-      <div className="bg-white rounded-lg border-2 border-purple-200 overflow-hidden">
-        <div className="bg-purple-500 text-white p-4">
-          <h3 className="font-bold text-lg">{t("BlindedMessage")}</h3>
-          <p className="text-sm opacity-90">{t("Sent from Alice to")}</p>
-        </div>
+      <PanelSection
+          title={t("BlindedMessage")}
+          subtitle={t("Sent from Alice to")}
+          headerBgClass="bg-purple-500"
+      >
         <div className="p-4">
           <pre className="bg-gray-50 text-black text-black p-4 rounded text-sm overflow-x-auto">
             {`{
@@ -280,15 +263,13 @@ export const Nut00: React.FC = () => {
             </li>
           </ul>
         </div>
-      </div>
+      </PanelSection>
 
-      <div className="bg-white rounded-lg border-2 border-blue-200 overflow-hidden">
-        <div className="bg-blue-500 text-white p-4">
-          <h3 className="font-bold text-lg">{t("BlindSignature (Promise)")}</h3>
-          <p className="text-sm opacity-90">
-            {t("Sent from Bob to Alice after signing")}
-          </p>
-        </div>
+      <PanelSection
+          title={t("BlindSignature (Promise)")}
+          subtitle={t("Sent from Bob to Alice after signing")}
+          headerBgClass="bg-blue-500"
+      >
         <div className="p-4">
           <pre className="bg-gray-50 text-black text-black p-4 rounded text-sm overflow-x-auto">
             {`{
@@ -309,17 +290,15 @@ export const Nut00: React.FC = () => {
             </li>
           </ul>
         </div>
-      </div>
+      </PanelSection>
 
-      <div className="bg-white rounded-lg border-2 border-green-200 overflow-hidden">
-        <div className="bg-green-500 text-white p-4">
-          <h3 className="font-bold text-lg">{t("Proof (Input)")}</h3>
-          <p className="text-sm opacity-90">
-            {t("Used by Alice to spend tokens")}
-          </p>
-        </div>
-        <div className="p-4">
-          <pre className="bg-gray-50 text-black text-black p-4 rounded text-sm overflow-x-auto">
+      <PanelSection
+        title={t("Proof (Input)")}
+        subtitle={t("Used by Alice to spend tokens")}
+        headerBgClass="bg-green-500"
+        >
+          <div className="p-4">
+            <pre className="bg-gray-50 text-black text-black p-4 rounded text-sm overflow-x-auto">
             {`{
   "amount": int,
   "id": hex_str,
@@ -327,22 +306,23 @@ export const Nut00: React.FC = () => {
   "C": hex_str
 }`}
           </pre>
-          <ul className="mt-3 space-y-1 text-sm text-gray-600">
-            <li>
-              <strong>{t("amount")}:</strong> {t("Value of the proof")}
-            </li>
-            <li>
-              <strong>id:</strong> {t("Keyset ID of signing keys")}
-            </li>
-            <li>
-              <strong>secret:</strong> {t("The secret message (UTF-8 string)")}
-            </li>
-            <li>
-              <strong>C:</strong> {t("Unblinded signature on secret")}
-            </li>
-          </ul>
-        </div>
-      </div>
+              <ul className="mt-3 space-y-1 text-sm text-gray-600">
+                <li>
+                  <strong>{t("amount")}:</strong> {t("Value of the proof")}
+                </li>
+                <li>
+                  <strong>id:</strong> {t("Keyset ID of signing keys")}
+                </li>
+                <li>
+                  <strong>secret:</strong> {t("The secret message (UTF-8 string)")}
+                </li>
+                <li>
+                  <strong>C:</strong> {t("Unblinded signature on secret")}
+                </li>
+              </ul>
+            </div>
+      </PanelSection>
+
     </div>
   );
 
@@ -401,10 +381,9 @@ export const Nut00: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-white rounded-lg border-2 border-gray-200 p-6">
-        <h3 className="font-bold text-lg text-black mb-3">
-          {t("V4 Token Structure")}
-        </h3>
+      <BoxSection
+        title={t("V4 Token Structure")}
+      >
         <pre className="bg-gray-50 text-black p-4 rounded text-sm overflow-x-auto">
           {`{
   "m": str,      // mint URL
@@ -425,61 +404,48 @@ export const Nut00: React.FC = () => {
   ]
 }`}
         </pre>
-      </div>
+      </BoxSection>
 
-      <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded">
-        <h3 className="font-bold mb-2 text-black">
-          {t("Binary Format (NFC)")}
-        </h3>
-        <p className="text-gray-700 mb-2">{t("For NFC transmission")}:</p>
-        <code className="block bg-gray-400 p-3 rounded text-sm">
-          utf8("craw") || utf8("B") || cbor(token_v4_object)
-        </code>
-      </div>
+      <ClosingPanel
+        title={t("Binary Format (NFC)")}
+        description={t("For NFC transmission") + ":"}
+        codeSnippet={`utf8("craw") || utf8("B") || cbor(token_v4_object)`}
+      />
+
     </div>
   );
 
   return (
     <>
-      {/* Header */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-linear-to-r from-blue-400 via-violet-400 to-pink-400">
-          NUT-00
-        </h1>
-        <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-          {t("subtitle")}
-        </p>
-        <div className="flex items-center justify-center gap-2 mt-3">
-          <span className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-            {t("MANDATORY")}
-          </span>
-        </div>
-      </div>
+      <NutHeader
+        nutNumber="00"
+        title={t("title")}
+        subtitle={t("subtitle")}
+        badgeLabel={t("MANDATORY")}
+      />
 
-      {/* Navigation */}
-      <div className="rounded-lg p-2 mb-6 flex flex-wrap gap-2">
-        {sections.map((section) => (
-          <button
-            key={section.id}
-            onClick={() => {
-              setActiveSection(section.id);
-              setSelectedStep(null);
-            }}
-            className={`cursor-pointer flex-1 min-w-[150px] px-4 py-3 rounded-lg font-semibold transition-all ${
-              activeSection === section.id
-                ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-md"
-                : "cursor-pointer p-6 rounded-xl border-2 transition-all transform hover:scale-105 text-white"
-            }`}
-          >
-            <span className="mr-2">{section.icon}</span>
-            {section.label}
-          </button>
-        ))}
-      </div>
+      <NutNavigation
+        sections={sections}
+        activeSection={activeSection}
+        onSectionChange={(sectionId) => {
+          setActiveSection(sectionId);
+          setSelectedStep(null);
+        }}
+      />
 
       {/* Content */}
       <div className="rounded-lg shadow-xl p-6 md:p-8 mb-8">
-        {activeSection === "overview" && renderOverview()}
+        {activeSection === "overview" && (
+          <OverviewSection
+            nutNumber="00"
+            title={t("Protocol Foundation")}
+            description={t("This specification defines")}
+            borderColor="border-green-500"
+            icon={<Lock className="w-5 h-5" />}
+            iconLabel={t("Key Innovation: Blind Signatures")}
+            iconDescription={t("The protocol uses")}
+          />
+        )}
         {activeSection === "bdhke" && renderBDHKE()}
         {activeSection === "variables" && renderVariables()}
         {activeSection === "models" && renderModels()}
