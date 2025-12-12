@@ -3,7 +3,7 @@ import React from "react";
 interface BoxSectionProps {
   title: React.ReactNode;
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const BoxSection: React.FC<BoxSectionProps> = ({

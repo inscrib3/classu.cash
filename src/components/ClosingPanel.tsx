@@ -6,6 +6,7 @@ interface ClosingPanelProps {
   codeSnippet?: string;
   note?: React.ReactNode;
   className?: string;
+  children?: React.ReactNode;
 }
 
 export const ClosingPanel: React.FC<ClosingPanelProps> = ({
@@ -14,6 +15,7 @@ export const ClosingPanel: React.FC<ClosingPanelProps> = ({
   codeSnippet,
   note,
   className = "",
+  children,
 }) => {
   return (
     <div className={`bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded ${className}`}>
@@ -28,6 +30,7 @@ export const ClosingPanel: React.FC<ClosingPanelProps> = ({
       )}
 
       {note && <div className="text-sm text-gray-600 mt-2">{note}</div>}
+      {children}
     </div>
   );
 };
