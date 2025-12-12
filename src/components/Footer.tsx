@@ -28,6 +28,7 @@ export const Footer: React.FC = () => {
               {t("Overview of Cashu and its Concepts")}
             </div>
           </button>
+
           <button
             onClick={() => router.push("/nut00")}
             className={
@@ -36,7 +37,79 @@ export const Footer: React.FC = () => {
           >
             <div className="text-2xl font-bold mb-2">{t("NUT 00")}</div>
             <div className="text-lg font-semibold">
-              {t("Notation, Utilization, and Terminology")}
+              {t("NUT 00 description")}
+            </div>
+          </button>
+
+          <button
+            onClick={() => router.push("/nut01")}
+            className={
+              "cursor-pointer bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-pink-400/50 hover:scale-105 transition-transform"
+            }
+          >
+            <div className="text-2xl font-bold mb-2">{t("NUT 01")}</div>
+            <div className="text-lg font-semibold">
+              {t("NUT 01 description")}
+            </div>
+          </button>
+
+          <button
+            onClick={() => router.push("/nut02")}
+            className={
+              "cursor-pointer bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-pink-400/50 hover:scale-105 transition-transform"
+            }
+          >
+            <div className="text-2xl font-bold mb-2">{t("NUT 02")}</div>
+            <div className="text-lg font-semibold">
+              {t("NUT 02 description")}
+            </div>
+          </button>
+
+          <button
+            onClick={() => router.push("/nut03")}
+            className={
+              "cursor-pointer bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-pink-400/50 hover:scale-105 transition-transform"
+            }
+          >
+            <div className="text-2xl font-bold mb-2">{t("NUT 03")}</div>
+            <div className="text-lg font-semibold">
+              {t("NUT 03 description")}
+            </div>
+          </button>
+
+          <button
+            onClick={() => router.push("/nut04")}
+            className={
+              "cursor-pointer bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-pink-400/50 hover:scale-105 transition-transform"
+            }
+          >
+            <div className="text-2xl font-bold mb-2">{t("NUT 04")}</div>
+            <div className="text-lg font-semibold">
+              {t("NUT 04 description")}
+            </div>
+          </button>
+
+          <button
+            onClick={() => router.push("/nut05")}
+            className={
+              "cursor-pointer bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-pink-400/50 hover:scale-105 transition-transform"
+            }
+          >
+            <div className="text-2xl font-bold mb-2">{t("NUT 05")}</div>
+            <div className="text-lg font-semibold">
+              {t("NUT 05 description")}
+            </div>
+          </button>
+
+          <button
+            onClick={() => router.push("/nut06")}
+            className={
+              "cursor-pointer bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-pink-400/50 hover:scale-105 transition-transform"
+            }
+          >
+            <div className="text-2xl font-bold mb-2">{t("NUT 06")}</div>
+            <div className="text-lg font-semibold">
+              {t("NUT 06 description")}
             </div>
           </button>
         </div>
