@@ -258,7 +258,7 @@ export const Nut04: React.FC = () => {
         {/* Render supported methods as a standalone section */}
         <div className="mt-8">{renderMethods()}</div> 
       </div>
-      <ClosingPanel title={t00("Part of the Cashu Protocol Specification")} />
+      {/* <ClosingPanel title={t00("Part of the Cashu Protocol Specification")} /> */}
     </>
   );
 };

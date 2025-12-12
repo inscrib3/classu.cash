@@ -43,7 +43,6 @@ export const Nut03: React.FC = () => {
       <ClosingPanel
         title={t("Privacy Note Title")}
         description={t("Privacy Note Desc")}
-        icon={<Info className="w-5 h-5" />}
       />
 
     </div>
@@ -166,7 +165,7 @@ export const Nut03: React.FC = () => {
         {activeSection === "receive" && renderSwapToReceive()}
         {activeSection === "api" && renderApi()}
       </div>
-      <ClosingPanel title={t("Part of the Cashu Protocol Specification")} />
+      {/* <ClosingPanel title={t("Part of the Cashu Protocol Specification")} /> */}
     </>
   );
 };
