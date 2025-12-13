@@ -44,7 +44,9 @@ export const Nut04: React.FC = () => {
 
   const renderFlow = () => (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">{t("General Flow Title")}</h2>
+      <h2 className="text-2xl font-bold mb-4">
+        {t("General Flow Title")}
+      </h2>
       
       <div className="space-y-4">
         <BoxSection title={`1. ${t("Flow Step 1 Title")}`} className="bg-blue-50">
@@ -82,17 +84,21 @@ export const Nut04: React.FC = () => {
 
   const renderApi = () => (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">{t("API")}</h2>
+      <h2 className="text-2xl font-bold text-white mb-4">
+        {t("API")}
+      </h2>
 
       {/* Mint Quote API */}
       <PanelSection
         title={t("API Quote Title")}
-        subtitle="POST https://mint.host:3338/v1/mint/quote/{method}"
+        subtitle={t("API Quote Desc")}
         headerBgClass="bg-blue-600"
       >
         <div className="p-4 space-y-4">
-          <p className="text-sm text-gray-600 mb-3">{t("API Quote Desc")}</p>
-          
+          <code className="block bg-gray-800 text-white p-3 rounded text-sm">
+            POST https://mint.host:3338/v1/mint/quote/&#123;method&#125;
+          </code>
+
           <h4 className="text-md font-semibold text-gray-700">{t("API Quote Request Format Title")}</h4>
           <pre className="bg-gray-50 text-black p-4 rounded text-xs overflow-x-auto border">
 {`{
@@ -146,7 +152,9 @@ export const Nut04: React.FC = () => {
 
   const renderSettings = () => (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">{t("Settings")}</h2>
+      <h2 className="text-2xl font-bold text-white mb-4">
+        {t("Settings")}
+      </h2>
       
       <p className="text-gray-300 mb-4">{t("Settings Desc")}</p>
 
