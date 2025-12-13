@@ -112,12 +112,12 @@ export const Nut06: React.FC = () => {
         headerBgClass="bg-green-600"
       >
         <div className="p-4 space-y-4">
-          <h4 className="font-semibold text-white">{t("Example Request")}</h4>
+          <h4 className="font-semibold text-gray-700">{t("Example Request")}</h4>
           <code className="block bg-gray-800 text-white p-3 rounded text-sm overflow-x-auto">
             GET https://mint.host:3338/v1/info
           </code>
-          <h4 className="font-semibold text-white">cURL Example</h4>
-          <pre className="bg-gray-50 text-black p-4 rounded text-sm overflow-x-auto">
+          <h4 className="font-semibold text-gray-700">cURL Example</h4>
+          <pre className="bg-gray-50 text-black p-4 rounded text-xs overflow-x-auto border">
             {`curl -X GET https://mint.host:3338/v1/info`}
           </pre>
         </div>
@@ -133,8 +133,8 @@ export const Nut06: React.FC = () => {
         headerBgClass="bg-blue-600"
       >
         <div className="p-4 space-y-4">
-          <h4 className="font-semibold text-white">{t("Example Response")}</h4>
-          <pre className="bg-gray-50 text-black p-4 rounded text-sm overflow-x-auto">
+          <h4 className="text-md font-semibold text-gray-700">{t("Example Response")}</h4>
+          <pre className="bg-gray-50 text-black p-4 rounded text-xs overflow-x-auto border">
             {GetInfoResponseExample}
           </pre>
 

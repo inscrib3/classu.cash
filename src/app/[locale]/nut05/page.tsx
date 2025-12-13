@@ -32,44 +32,34 @@ export const Nut05: React.FC = () => {
 
   const renderFlow = () => (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">
+      <h2 className="text-2xl font-bold mb-4">
         {t("General Flow")}
       </h2>
 
-      {/* General Flow Steps */}
-      <BoxSection title="Steps">
-        {meltFlowSteps.map((step) => (
-          <div key={step.num} className="flex items-start gap-4 p-4 border-l-4 border-cyan-400 bg-gray-700/50 rounded-lg">
-            <div className="flex-shrink-0 w-8 h-8 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold">
-              {step.num}
-            </div>
-            <div className="flex-1">
-              <div className="font-semibold text-white mb-1">
-                {step.title}
-              </div>
-              <p className="text-gray-300 text-sm">{step.desc}</p>
-            </div>
+      <div className="space-y-4">
+          {meltFlowSteps.map((step) => (
+            <BoxSection title={`${step.num}. ${step.title}`} >
+              {step.desc}
+            </BoxSection>
+          ))}
+        {/* Supported Methods */}
+        <PanelSection
+            title={t("Supported Methods")}
+            subtitle="Method-specific NUTs describe how to handle different payment methods."
+            headerBgClass="bg-purple-600"
+        >
+          <div className="p-4 space-y-2 text-black">
+            <p>
+              <CornerDownRight className="w-4 h-4 inline-block mr-2" />
+              {t("Method Bolt11")}
+            </p>
+            <p>
+              <CornerDownRight className="w-4 h-4 inline-block mr-2" />
+              {t("Method Bolt12")}
+            </p>
           </div>
-        ))}
-      </BoxSection>
-
-      {/* Supported Methods */}
-      <PanelSection
-          title={t("Supported Methods")}
-          subtitle="Method-specific NUTs describe how to handle different payment methods."
-          headerBgClass="bg-purple-600"
-      >
-        <div className="p-4 space-y-2">
-          <p className="text-white">
-            <CornerDownRight className="w-4 h-4 inline-block mr-2" />
-            {t("Method Bolt11")}
-          </p>
-          <p className="text-white">
-            <CornerDownRight className="w-4 h-4 inline-block mr-2" />
-            {t("Method Bolt12")}
-          </p>
-        </div>
-      </PanelSection>
+        </PanelSection>
+      </div>
 
 
       {/* Synchronous vs Asynchronous Processing */}
@@ -97,7 +87,7 @@ export const Nut05: React.FC = () => {
   );
 
   const renderAPI = () => (
-    <div className="space-y-6">
+    <div className="space-y-6 ">
       <h2 className="text-2xl font-bold text-white mb-4">
         {t("API Endpoints")}
       </h2>
@@ -113,8 +103,8 @@ export const Nut05: React.FC = () => {
             POST https://mint.host:3338/v1/melt/quote/&#123;method&#125;
           </code>
 
-          <h4 className="font-semibold text-white">Request (Wallet)</h4>
-          <pre className="bg-gray-50 text-black p-4 rounded text-sm overflow-x-auto">
+          <h4 className="text-md font-semibold text-gray-700">Request (Wallet)</h4>
+          <pre className="bg-gray-50 text-black p-4 rounded text-xs overflow-x-auto border">
             {`{
   "request": <str>,
   "unit": <str_enum[UNIT]>
@@ -122,8 +112,8 @@ export const Nut05: React.FC = () => {
 }`}
           </pre>
 
-          <h4 className="font-semibold text-white">Response (Mint)</h4>
-          <pre className="bg-gray-50 text-black p-4 rounded text-sm overflow-x-auto">
+          <h4 className="text-md font-semibold text-gray-700">Response (Mint)</h4>
+          <pre className="bg-gray-50 text-black p-4 rounded text-xs overflow-x-auto border">
             {`{
   "quote": <str>,
   "amount": <int>,
@@ -133,7 +123,7 @@ export const Nut05: React.FC = () => {
   // Additional method-specific fields
 }`}
           </pre>
-          <ul className="mt-3 space-y-1 text-sm text-gray-300">
+          <ul className="mt-3 space-y-1 text-sm text-black">
             <li><strong>quote:</strong> {t("Quote Response Quote")}</li>
             <li><strong>amount:</strong> {t("Quote Response Amount")}</li>
             <li><strong>unit:</strong> {t("Quote Response Unit")}</li>
@@ -158,7 +148,7 @@ export const Nut05: React.FC = () => {
           <code className="block bg-gray-800 text-white p-3 rounded text-sm">
             GET https://mint.host:3338/v1/melt/quote/&#123;method&#125;/&#123;quote_id&#125;
           </code>
-          <p className="mt-3 text-sm text-gray-300">
+          <p className="mt-3 text-sm text-black">
             {t("Check Quote Desc")}
           </p>
         </div>
@@ -175,25 +165,25 @@ export const Nut05: React.FC = () => {
             POST https://mint.host:3338/v1/melt/&#123;method&#125;
           </code>
 
-          <h4 className="font-semibold text-white">Request (Wallet)</h4>
-          <pre className="bg-gray-50 text-black p-4 rounded text-sm overflow-x-auto">
+          <h4 className="text-md font-semibold text-gray-700">Request (Wallet)</h4>
+          <pre className="bg-gray-50 text-black p-4 rounded text-xs overflow-x-auto border">
             {`{
   "quote": <str>,
   "inputs": <Array[Proof]>
   // Additional method-specific fields
 }`}
           </pre>
-          <ul className="mt-3 space-y-1 text-sm text-gray-300">
+          <ul className="mt-3 space-y-1 text-sm text-black">
             <li><strong>quote:</strong> {t("Quote ID")}</li>
             <li><strong>inputs:</strong> {t("Melt Request Inputs")}</li>
           </ul>
 
-          <h4 className="font-semibold text-white mt-4">Asynchronous Flow</h4>
-          <p className="text-sm text-gray-300 mb-2">
+          <h4 className="text-md font-semibold text-gray-700">Asynchronous Flow</h4>
+          <p className="text-sm text-black mb-2">
             {t("Async Header Desc")}
           </p>
 
-          <div className="bg-yellow-900/50 border border-yellow-700 p-3 rounded">
+          <div className="bg-yellow-900/90 border border-yellow-700 p-3 rounded">
             <h5 className="font-bold text-yellow-300">{t("Async Supported Flow")}</h5>
             <ol className="list-decimal list-inside text-sm text-yellow-100 space-y-1 mt-1">
               <li>{t("Async Step 1")}</li>
@@ -203,9 +193,9 @@ export const Nut05: React.FC = () => {
             </ol>
           </div>
 
-          <div className="text-sm text-gray-300 pt-2">
+          <div className="text-sm text-black pt-2">
             {t("Async Poll Desc")}
-            <ul className="list-disc list-inside ml-4 mt-1 text-gray-300">
+            <ul className="list-disc list-inside ml-4 mt-1">
               <li>{t("Async Poll 1")}</li>
               <li>{t("Async Poll 2")}</li>
             </ul>
@@ -232,8 +222,14 @@ export const Nut05: React.FC = () => {
       <p className="text-gray-300 mb-4">{t("Settings Desc")}</p>
 
       {/* Settings JSON Structure */}
-      <BoxSection title="NUT-06 Info Response Snippet" className="bg-gray-700/50">
-        <pre className="bg-gray-800 text-white p-4 rounded text-sm overflow-x-auto">
+      <PanelSection
+        title="NUT-06 Info Response Snippet"
+        subtitle="Key 4 for Minting"
+        headerBgClass="bg-gray-700"
+      >
+
+
+        <pre className="bg-gray-50 text-black p-4 rounded text-xs overflow-x-auto border">
           {`{
   "5": {
     "methods": [
@@ -244,10 +240,12 @@ export const Nut05: React.FC = () => {
   }
 }`}
         </pre>
-        <ul className="mt-3 space-y-1 text-sm text-gray-300">
+
+        <ul className="mt-3 space-y-1 text-sm text-black">
           <li><strong>disabled:</strong> {t("Setting Disabled Desc")}</li>
         </ul>
-      </BoxSection>
+
+      </PanelSection>
 
       {/* MeltMethodSetting Format */}
       <PanelSection
@@ -280,7 +278,7 @@ export const Nut05: React.FC = () => {
         // icon={<Zap className="w-5 h-5 text-cyan-500" />}
         className="bg-cyan-900/70 border-cyan-700"
       >
-        <ol className="list-decimal list-inside text-sm text-white space-y-1 mt-2">
+        <ol className="list-decimal list-inside text-sm text-black space-y-1 mt-2">
           <li>{t("Method Step 1")}</li>
           <li>{t("Method Step 2")}</li>
           <li>{t("Method Step 3")}</li>
@@ -308,7 +306,7 @@ export const Nut05: React.FC = () => {
       />
 
       {/* Content */}
-      <div className="rounded-lg shadow-xl p-6 md:p-8 mb-8 bg-gray-800">
+      <div className="rounded-lg shadow-xl p-6 md:p-8 mb-8">
         {activeSection === "overview" && (
           <OverviewSection
             nutNumber="05"
