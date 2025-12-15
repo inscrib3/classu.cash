@@ -10,6 +10,20 @@ import { OverviewSection } from "@/src/components/OverviewSection";
 import ClosingPanel from "@/src/components/ClosingPanel";
 import { useTranslations } from "next-intl";
 
+import { AlertCircleIcon, BadgeCheckIcon, CheckIcon } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+
+import {
+  Item,
+  ItemActions,
+  ItemContent,
+  ItemDescription,
+  ItemFooter,
+  ItemHeader,
+  ItemMedia,
+  ItemTitle,
+} from "@/components/ui/item";
+
 export const Nut06: React.FC = () => {
   const t = useTranslations("nut06");
   const [activeSection, setActiveSection] = useState("overview");
@@ -141,14 +155,14 @@ export const Nut06: React.FC = () => {
           <h4 className="font-semibold text-white pt-4">
             {t("Field Description")}
           </h4>
-          <div className="space-y-2">
+          <div className="space-y-2 text-gray-800">
             {responseFields.map((field) => (
-              <div key={field.field} className="bg-gray-100/50 p-3 rounded-lg border-l-4 border-blue-400">
-                <p className="font-mono text-sm text-blue-700">
+              <Item key={field.field} variant="outline">
+                <ItemHeader>
                   {field.field}
-                  {field.optional && <span className="text-gray-500 ml-2 text-xs">(optional)</span>}
-                </p>
-                <p className="text-gray-800 text-sm mt-1">{field.desc}</p>
+                  {field.optional && <Badge variant="secondary">optional</Badge>}
+                </ItemHeader>
+                <ItemDescription>{field.desc}</ItemDescription>
                 {field.field === t("field_contact") && (
                   <ul className="list-disc list-inside ml-4 text-xs text-gray-400 mt-2">
                     <li>{t("Contact Method")} (`method`)</li>
@@ -166,7 +180,7 @@ export const Nut06: React.FC = () => {
                     </p>
                   </div>
                 )}
-              </div>
+              </Item>
             ))}
           </div>
         </div>
