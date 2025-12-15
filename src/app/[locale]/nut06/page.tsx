@@ -193,7 +193,7 @@ export const Nut06: React.FC = () => {
       />
 
       {/* Content */}
-      <div className="rounded-lg shadow-xl p-6 md:p-8 mb-8 bg-gray-800">
+      <div className="rounded-lg shadow-xl p-6 md:p-8 mb-8">
         {activeSection === "overview" && (
           <OverviewSection
             nutNumber="06"

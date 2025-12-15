@@ -38,7 +38,7 @@ export const Nut05: React.FC = () => {
 
       <div className="space-y-4">
           {meltFlowSteps.map((step) => (
-            <BoxSection title={`${step.num}. ${step.title}`} >
+            <BoxSection key={step.num} title={`${step.num}. ${step.title}`} >
               {step.desc}
             </BoxSection>
           ))}
