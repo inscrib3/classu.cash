@@ -207,6 +207,8 @@
     "example_usd_key_2": "2 Cent (0.02 USD)"
   },
   "nut02": {
+    "Protocol Definition Description": "This NUT defines how mints manage multiple sets of public keys (keysets) and how fees are calculated for transactions.",
+    "Keyset Management Description": "Supports key rotation, multiple currencies, and usage fees.",
     "title": "Keysets und Gebühren",
     "subtitle": "Keysets und Gebühren",
     "MANDATORY": "OBLIGATORISCH",
