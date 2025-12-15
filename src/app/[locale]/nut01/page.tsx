@@ -1,9 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
-import { Key, DollarSign, Repeat, Server, Code } from "lucide-react";
+import { Key, DollarSign, Repeat, Server, Code, Lock } from "lucide-react";
+import { PanelSection } from "@/src/components/PanelSection";
+import { BoxSection } from "@/src/components/BoxSection";
 
 import { CharactersSection } from "@/src/components/CharactersSection";
+import { OverviewSection } from "@/src/components/OverviewSection";
+import { SectionHeader } from "@/src/components/SectionHeader";
+import { NutHeader } from "@/src/components/NutHeader";
+import { NutNavigation } from "@/src/components/NutNavigation";
+import { ClosingPanel } from "@/src/components/ClosingPanel";
 
 import { useTranslations } from "next-intl";
 
@@ -21,27 +28,6 @@ export const Nut01: React.FC = () => {
     { id: "example", label: t("Example"), icon: "📖" },
   ];
 
-  const renderOverview = () => (
-    <div className="space-y-6">
-      <div className="bg-gradient-to-r from-teal-500 to-green-500 rounded-lg p-8 text-white">
-        <h2 className="text-3xl font-bold mb-4">
-          NUT-01: {t("description_title")}
-        </h2>
-        <p className="text-lg opacity-90">{t("description_detail")}</p>
-      </div>
-
-      <CharactersSection /> {/* Assumo che questa sezione sia riutilizzabile */}
-
-      <div className="border-l-4 border-green-500 p-6 rounded">
-        <h3 className="font-bold text-lg mb-2 flex items-center gap-2">
-          <Repeat className="w-5 h-5" />
-          {t("active_keysets")}
-        </h3>
-        <p className="text-gray-400">{t("active_keysets_detail")}</p>
-      </div>
-    </div>
-  );
-
   const renderEndpoint = () => (
     <div className="space-y-6">
       <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
@@ -49,11 +35,12 @@ export const Nut01: React.FC = () => {
         {t("Endpoint")}
       </h2>
 
-      <div className="bg-white rounded-lg border-2 border-blue-200 overflow-hidden">
-        <div className="bg-blue-500 text-white p-4">
-          <h3 className="font-bold text-lg">{t("endpoint_title")}</h3>
-          <p className="text-sm opacity-90">{t("endpoint_detail")}</p>
-        </div>
+      <PanelSection
+          title={t("endpoint_title")}
+          subtitle={t("endpoint_detail")}
+          headerBgClass="bg-purple-500"
+      >
+
         <div className="p-4">
           <h4 className="font-semibold text-gray-700 mb-2">
             {t("endpoint_request_title")}
@@ -81,7 +68,10 @@ export const Nut01: React.FC = () => {
           </pre>
           <p className="mt-3 text-sm text-gray-600">{t("response_detail")}</p>
         </div>
-      </div>
+
+      </PanelSection>
+
+
     </div>
   );
 
@@ -92,11 +82,9 @@ export const Nut01: React.FC = () => {
         {t("Supported Units")}
       </h2>
 
-      <div className="bg-white rounded-lg p-6">
-        <h3 className="font-bold text-lg mb-3 text-gray-700">
-          {t("currency_units_title")}
-        </h3>
-        <p className="text-gray-600 mb-4">{t("currency_units_detail")}</p>
+      <BoxSection
+        title={t("currency_units_title")}
+      >
         <ul className="list-disc list-inside space-y-2 text-sm text-gray-700 ml-4">
           <li>
             <strong className="text-blue-500">btc</strong>: Bitcoin (Minor Unit:
@@ -125,30 +113,35 @@ export const Nut01: React.FC = () => {
             <code className="bg-gray-200 px-1 rounded">gyen</code>
           </li>
         </ul>
-      </div>
+      </BoxSection>
 
-      <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded">
-        <h3 className="font-bold text-lg mb-2 text-yellow-900">
-          {t("minor_unit_rule_title")}
-        </h3>
-        <p className="text-gray-700 mb-3">{t("minor_unit_rule_detail")}</p>
-        <ul className="list-disc list-inside space-y-1 text-sm text-gray-700 ml-4">
-          <li>
-            <code className="bg-gray-200 px-1 rounded">usd</code> (Minor Unit:
-            2): <code className="font-mono">amount = 1</code> means 1 cent (0.01
-            USD)
-          </li>
-          <li>
-            <code className="bg-gray-200 px-1 rounded">jpy</code> (Minor Unit:
-            0): <code className="font-mono">amount = 1</code> means 1 JPY (Whole
-            unit)
-          </li>
-          <li>
-            <code className="bg-gray-200 px-1 rounded">btc</code> (Minor Unit:
-            8): <code className="font-mono">amount = 1</code> means 1 sat
-          </li>
-        </ul>
-      </div>
+      <ClosingPanel
+        title={t("minor_unit_rule_title")}
+        description={t("minor_unit_rule_detail") + ":"}
+        // codeSnippet={`Y = PublicKey('02' || SHA256(msg_hash || counter))`}
+        note={
+          <>
+            <ul className="list-disc list-inside space-y-1 text-sm text-gray-700 ml-4">
+              <li>
+                <code className="bg-gray-200 px-1 rounded">usd</code> (Minor Unit:
+                2): <code className="font-mono">amount = 1</code> means 1 cent (0.01
+                USD)
+              </li>
+              <li>
+                <code className="bg-gray-200 px-1 rounded">jpy</code> (Minor Unit:
+                0): <code className="font-mono">amount = 1</code> means 1 JPY (Whole
+                unit)
+              </li>
+              <li>
+                <code className="bg-gray-200 px-1 rounded">btc</code> (Minor Unit:
+                8): <code className="font-mono">amount = 1</code> means 1 sat
+              </li>
+            </ul>
+          </>
+        }
+      />
+
+      
     </div>
   );
 
@@ -159,14 +152,12 @@ export const Nut01: React.FC = () => {
         {t("Keyset Structure")}
       </h2>
 
-      <div className="bg-white rounded-lg p-6">
-        <h3 className="font-bold text-lg mb-3 text-gray-700">
-          {t("keyset_generation_title")}
-        </h3>
-        <p className="text-gray-600">
-          {t("keyset_generation_detail")}
-        </p>
-      </div>
+      <BoxSection
+        title={t("keyset_generation_title")}
+      >
+        {t("keyset_generation_detail")}
+      </BoxSection>
+
 
       <div className="bg-purple-50 border-l-4 border-purple-500 p-6 rounded">
         <h3 className="font-bold text-lg mb-2 text-purple-900">
@@ -242,42 +233,35 @@ export const Nut01: React.FC = () => {
 
   return (
     <>
-      {/* Header */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-linear-to-r from-teal-400 via-green-400 to-blue-400">
-          NUT-01
-        </h1>
-        <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-          {t("subtitle")}
-        </p>
-        <div className="flex items-center justify-center gap-2 mt-3">
-          <span className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-            {t("MANDATORY")}
-          </span>
-        </div>
-      </div>
+      <NutHeader
+        nutNumber="01"
+        title={t("title")}
+        subtitle={t("subtitle")}
+        badgeLabel={t("MANDATORY")}
+        // badgeColor="bg-green-500"
+      />
 
-      {/* Navigation */}
-      <div className="rounded-lg p-2 mb-6 flex flex-wrap gap-2">
-        {sections.map((section) => (
-          <button
-            key={section.id}
-            onClick={() => setActiveSection(section.id)}
-            className={`cursor-pointer flex-1 min-w-[150px] px-4 py-3 rounded-lg font-semibold transition-all ${
-              activeSection === section.id
-                ? "bg-gradient-to-r from-teal-500 to-green-500 text-white shadow-md"
-                : "cursor-pointer p-6 rounded-xl border-2 transition-all transform hover:scale-105 text-white"
-            }`}
-          >
-            <span className="mr-2">{section.icon}</span>
-            {section.label}
-          </button>
-        ))}
-      </div>
+      <NutNavigation
+        sections={sections}
+        activeSection={activeSection}
+        onSectionChange={setActiveSection}
+        gradientClass="from-teal-500 to-green-500"
+      />
 
       {/* Content */}
       <div className="rounded-lg shadow-xl p-6 md:p-8 mb-8">
-        {activeSection === "overview" && renderOverview()}
+        {activeSection === "overview" && (
+          <OverviewSection
+            nutNumber="01"
+            title={t("description_title")}
+            description={t("description_detail")}
+            borderColor="border-green-500"
+            icon={<Repeat className="w-5 h-5" />}
+            iconLabel={t("active_keysets")}
+            iconDescription={t("active_keysets_detail")}
+            gradientClass="from-teal-500 to-green-500"
+          />
+        )}
         {activeSection === "endpoint" && renderEndpoint()}
         {activeSection === "units" && renderUnits()}
         {activeSection === "keyset" && renderKeyset()}
