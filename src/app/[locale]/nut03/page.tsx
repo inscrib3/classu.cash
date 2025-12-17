@@ -9,6 +9,7 @@ import { NutHeader } from "@/src/components/NutHeader";
 import { NutNavigation } from "@/src/components/NutNavigation";
 import { OverviewSection } from "@/src/components/OverviewSection";
 import ClosingPanel from "@/src/components/ClosingPanel";
+import { SectionPage } from "@/src/components/SectionPage";
 
 import { useTranslations } from "next-intl";
 
@@ -25,18 +26,16 @@ export const Nut03: React.FC = () => {
   ];
 
   const renderSwapToSend = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">{t("Swap to Send Title")}</h2>
-      
+    <SectionPage title={t("Swap to Send Title")}>
       <BoxSection title={t("Alice Example Title")} className="bg-purple-50">
         <p className="text-sm text-gray-700 mb-2">
-            {t("Swap to Send Desc")}
+          {t("Swap to Send Desc")}
         </p>
         <div className="mt-4 p-3 bg-purple-100 rounded">
-            <p className="font-semibold text-sm text-purple-800">{t("Alice Example Desc")}</p>
-            <p className="text-xs text-purple-700 mt-1">
-                {t("Alice Swap Detail")}
-            </p>
+          <p className="font-semibold text-sm text-purple-800">{t("Alice Example Desc")}</p>
+          <p className="text-xs text-purple-700 mt-1">
+            {t("Alice Swap Detail")}
+          </p>
         </div>
       </BoxSection>
 
@@ -44,32 +43,26 @@ export const Nut03: React.FC = () => {
         title={t("Privacy Note Title")}
         description={t("Privacy Note Desc")}
       />
-
-    </div>
+    </SectionPage>
   );
 
   const renderSwapToReceive = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">{t("Swap to Receive Title")}</h2>
-      
+    <SectionPage title={t("Swap to Receive Title")}>
       <BoxSection title={t("Carol Example Title")} className="bg-green-50">
         <p className="text-sm text-gray-700 mb-2">
-            {t("Swap to Receive Desc")}
+          {t("Swap to Receive Desc")}
         </p>
         <div className="mt-4 p-3 bg-green-100 rounded">
-            <p className="text-sm text-green-800 mt-1">
-                {t("Carol Swap Detail")}
-            </p>
+          <p className="text-sm text-green-800 mt-1">
+            {t("Carol Swap Detail")}
+          </p>
         </div>
       </BoxSection>
-
-    </div>
+    </SectionPage>
   );
 
   const renderApi = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">{t("API Endpoints")}</h2>
-      
+    <SectionPage title={t("API Endpoints")}>
       <PanelSection
         title={t("API Endpoint Title")}
         subtitle="POST https://mint.host:3338/v1/swap"
@@ -78,30 +71,28 @@ export const Nut03: React.FC = () => {
         <div className="p-4 space-y-4">
           <h3 className="font-semibold text-gray-800">{t("API Request Title")}</h3>
           <p className="text-sm text-gray-600 font-mono">curl -X POST https://mint.host:3338/v1/swap -d ...</p>
-          
+
           <h4 className="text-md font-semibold text-gray-700">{t("Request Format Title")}</h4>
           <pre className="bg-gray-50 text-black p-4 rounded text-xs overflow-x-auto border">
-{`{
+            {`{
   "inputs": <Array[Proof]>,
   "outputs": <Array[BlindedMessage]>,
 }`}
           </pre>
-          
+
           <h4 className="text-md font-semibold text-gray-700 pt-4">{t("API Response Title")}</h4>
           <h4 className="text-md font-semibold text-gray-700">{t("Response Format Title")}</h4>
           <pre className="bg-gray-50 text-black p-4 rounded text-xs overflow-x-auto border">
-{`{
+            {`{
   "signatures": <Array[BlindSignature]>
 }`}
           </pre>
         </div>
       </PanelSection>
-      
-      
 
       <BoxSection title="cURL Example" className="bg-gray-50">
         <pre className="bg-gray-800 text-green-400 p-4 rounded text-xs overflow-x-auto font-mono">
-{`curl -X POST https://mint.host:3338/v1/swap -d \\
+          {`curl -X POST https://mint.host:3338/v1/swap -d \\
 {
   "inputs":
     [
@@ -129,7 +120,7 @@ export const Nut03: React.FC = () => {
 }`}
         </pre>
       </BoxSection>
-    </div>
+    </SectionPage>
   );
 
   return (
@@ -156,7 +147,7 @@ export const Nut03: React.FC = () => {
             description={t("Protocol Definition Desc")}
             borderColor="border-red-500"
             // Correzione: Uso di ArrowLeftRight
-            icon={<ArrowLeftRight className="w-5 h-5" />} 
+            icon={<ArrowLeftRight className="w-5 h-5" />}
             iconLabel={t("Swap Functionality")}
             iconDescription={t("Swap Functionality Desc")}
           />

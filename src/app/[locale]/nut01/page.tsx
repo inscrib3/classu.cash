@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Key, DollarSign, Repeat, Server, Code, Lock } from "lucide-react";
 import { PanelSection } from "@/src/components/PanelSection";
 import { BoxSection } from "@/src/components/BoxSection";
+import { SectionPage } from "@/src/components/SectionPage";
 
 import { CharactersSection } from "@/src/components/CharactersSection";
 import { OverviewSection } from "@/src/components/OverviewSection";
@@ -29,16 +30,17 @@ export const Nut01: React.FC = () => {
   ];
 
   const renderEndpoint = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-        <Server className="w-6 h-6" />
+    <SectionPage title={
+      <>
+        <Server className="w-6 h-6 inline" />
         {t("Endpoint")}
-      </h2>
+      </>
+    }>
 
       <PanelSection
-          title={t("endpoint_title")}
-          subtitle={t("endpoint_detail")}
-          headerBgClass="bg-purple-500"
+        title={t("endpoint_title")}
+        subtitle={t("endpoint_detail")}
+        headerBgClass="bg-purple-500"
       >
 
         <div className="p-4">
@@ -71,16 +73,16 @@ export const Nut01: React.FC = () => {
 
       </PanelSection>
 
-
-    </div>
+    </SectionPage>
   );
 
   const renderUnits = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-        <DollarSign className="w-6 h-6" />
+    <SectionPage title={
+      <>
+        <DollarSign className="w-6 h-6 inline" />
         {t("Supported Units")}
-      </h2>
+      </>
+    }>
 
       <BoxSection
         title={t("currency_units_title")}
@@ -141,16 +143,17 @@ export const Nut01: React.FC = () => {
         }
       />
 
-      
-    </div>
+
+    </SectionPage>
   );
 
   const renderKeyset = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-        <Key className="w-6 h-6" />
+    <SectionPage title={
+      <>
+        <Key className="w-6 h-6 inline" />
         {t("Keyset Structure")}
-      </h2>
+      </>
+    }>
 
       <BoxSection
         title={t("keyset_generation_title")}
@@ -172,15 +175,16 @@ export const Nut01: React.FC = () => {
           <strong className="text-purple-600">compressed Secp256k1 format</strong>.
         </p>
       </div>
-    </div>
+    </SectionPage>
   );
 
   const renderExample = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-        <Code className="w-6 h-6" />
+    <SectionPage title={
+      <>
+        <Code className="w-6 h-6 inline" />
         {t("Example")}
-      </h2>
+      </>
+    }>
 
       <div className="bg-white rounded-lg p-6">
         <h3 className="font-bold text-xl mb-3 text-black">
@@ -228,7 +232,7 @@ export const Nut01: React.FC = () => {
           *I valori si riferiscono alla Minor Unit del dollaro (cent).
         </p>
       </div>
-    </div>
+    </SectionPage>
   );
 
   return (
@@ -238,7 +242,7 @@ export const Nut01: React.FC = () => {
         title={t("title")}
         subtitle={t("subtitle")}
         badgeLabel={t("MANDATORY")}
-        // badgeColor="bg-green-500"
+      // badgeColor="bg-green-500"
       />
 
       <NutNavigation

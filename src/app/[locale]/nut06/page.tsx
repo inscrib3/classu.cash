@@ -6,6 +6,7 @@ import { PanelSection } from "@/src/components/PanelSection";
 import { BoxSection } from "@/src/components/BoxSection";
 import { NutHeader } from "@/src/components/NutHeader";
 import { NutNavigation } from "@/src/components/NutNavigation";
+import { SectionPage } from "@/src/components/SectionPage";
 import { OverviewSection } from "@/src/components/OverviewSection";
 import ClosingPanel from "@/src/components/ClosingPanel";
 import { useTranslations } from "next-intl";
@@ -119,7 +120,7 @@ export const Nut06: React.FC = () => {
 }`;
 
   const renderEndpoint = () => (
-    <div className="space-y-6">
+    <SectionPage title={t("Endpoint")}>
       <PanelSection
         title={`GET /v1/info`}
         subtitle={t("Endpoint")}
@@ -136,11 +137,11 @@ export const Nut06: React.FC = () => {
           </pre>
         </div>
       </PanelSection>
-    </div>
+    </SectionPage>
   );
 
   const renderResponse = () => (
-    <div className="space-y-6">
+    <SectionPage title={t("Response")}>
       <PanelSection
         title={`GetInfoResponse`}
         subtitle={t("Response")}
@@ -162,7 +163,7 @@ export const Nut06: React.FC = () => {
                   {field.field}
                   {field.optional && <Badge variant="secondary">optional</Badge>}
                 </ItemHeader>
-                <ItemDescription>{field.desc}</ItemDescription>
+                <ItemDescription className="h-auto">{field.desc}</ItemDescription>
                 {field.field === t("field_contact") && (
                   <ul className="list-disc list-inside ml-4 text-xs text-gray-400 mt-2">
                     <li>{t("Contact Method")} (`method`)</li>
@@ -173,10 +174,10 @@ export const Nut06: React.FC = () => {
                   <div className="mt-2 p-2 bg-gray-200/70 rounded">
                     <p className="text-yellow-400 font-bold text-xs">{t("Supported NUTs")}</p>
                     <p className="text-xs text-gray-400">
-                       * `4`, `5`: Settings for minting/melting methods (vedi NUT-04, NUT-05).
+                      * `4`, `5`: Settings for minting/melting methods (vedi NUT-04, NUT-05).
                     </p>
                     <p className="text-xs text-gray-400">
-                       * `7`, `8`, `9`, `10`, `12`: Flag booleano `supported`.
+                      * `7`, `8`, `9`, `10`, `12`: Flag booleano `supported`.
                     </p>
                   </div>
                 )}
@@ -185,7 +186,7 @@ export const Nut06: React.FC = () => {
           </div>
         </div>
       </PanelSection>
-    </div>
+    </SectionPage>
   );
 
 

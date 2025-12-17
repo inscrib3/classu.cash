@@ -6,6 +6,7 @@ import { PanelSection } from "@/src/components/PanelSection";
 import { BoxSection } from "@/src/components/BoxSection";
 import { NutHeader } from "@/src/components/NutHeader";
 import { NutNavigation } from "@/src/components/NutNavigation";
+import { SectionPage } from "@/src/components/SectionPage";
 import { OverviewSection } from "@/src/components/OverviewSection";
 import ClosingPanel from "@/src/components/ClosingPanel";
 
@@ -26,9 +27,8 @@ export const Nut02: React.FC = () => {
   ];
 
   const renderProperties = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">{t("Properties Title")}</h2>
-      
+    <SectionPage title={t("Properties Title")}>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <BoxSection title={t("ID Title")} className="bg-purple-50">
           <p className="text-sm text-gray-700 mb-2">
@@ -42,7 +42,7 @@ export const Nut02: React.FC = () => {
         </BoxSection>
 
         <BoxSection title={t("Active Title")} className="bg-green-50">
-           <p className="text-sm text-gray-700 mb-2">
+          <p className="text-sm text-gray-700 mb-2">
             {t("Active Desc")}
           </p>
           <ul className="text-sm text-gray-600 list-disc ml-4 space-y-1">
@@ -67,15 +67,14 @@ export const Nut02: React.FC = () => {
           </p>
         </BoxSection>
       </div>
-    </div>
+    </SectionPage>
   );
 
   const renderFees = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">{t("Fees Title")}</h2>
-      
-      <PanelSection 
-        title={t("Ppk Title")} 
+    <SectionPage title={t("Fees Title")}>
+
+      <PanelSection
+        title={t("Ppk Title")}
         subtitle={t("Ppk Subtitle")}
         headerBgClass="bg-orange-500"
       >
@@ -100,7 +99,7 @@ export const Nut02: React.FC = () => {
       <div className="space-y-2">
         <h3 className="text-white font-semibold">{t("Calculation Title")}</h3>
         <pre className="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto font-mono">
-{`def fees(inputs: List[Proof]) -> int:
+          {`def fees(inputs: List[Proof]) -> int:
   sum_fees = 0
   for proof in inputs:
     sum_fees += keysets[proof.id].input_fee_ppk
@@ -111,13 +110,12 @@ export const Nut02: React.FC = () => {
           {t("Calculation Note")}
         </p>
       </div>
-    </div>
+    </SectionPage>
   );
 
   const renderDerivation = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">{t("Derivation Title")}</h2>
-      
+    <SectionPage title={t("Derivation Title")}>
+
       <div className="bg-white rounded-lg p-6 shadow-md">
         <h3 className="font-bold text-gray-800 mb-4">{t("Derivation Steps Title")}</h3>
         <ol className="list-decimal ml-5 space-y-2 text-gray-700 text-sm">
@@ -132,18 +130,17 @@ export const Nut02: React.FC = () => {
       <div className="space-y-2">
         <h3 className="text-white font-semibold">{t("Derivation Code Title")}</h3>
         <pre className="bg-gray-900 text-blue-300 p-4 rounded text-sm overflow-x-auto font-mono">
-{`def derive_keyset_id(keys: Dict[int, PublicKey]) -> str:
+          {`def derive_keyset_id(keys: Dict[int, PublicKey]) -> str:
     sorted_keys = dict(sorted(keys.items()))
     pubkeys_concat = b"".join([p.serialize() for p in sorted_keys.values()])
     return "00" + hashlib.sha256(pubkeys_concat).hexdigest()[:14]`}
         </pre>
       </div>
-    </div>
+    </SectionPage>
   );
 
   const renderApi = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">{t("API Title")}</h2>
+    <SectionPage title={t("API Title")}>
 
       <PanelSection
         title={t("API Keyset Title")}
@@ -155,7 +152,7 @@ export const Nut02: React.FC = () => {
             {t("API Keyset Desc")}
           </p>
           <pre className="bg-gray-50 text-black p-4 rounded text-xs overflow-x-auto border">
-{`{
+            {`{
   "keysets": [
     {
       "id": "009a1f293253e41e",
@@ -185,7 +182,7 @@ export const Nut02: React.FC = () => {
             {t("API Keys Desc")}
           </p>
           <pre className="bg-gray-50 text-black p-4 rounded text-xs overflow-x-auto border">
-{`{
+            {`{
   "keysets": [{
     "id": "009a1f293253e41e",
     "unit": "sat",
@@ -200,19 +197,18 @@ export const Nut02: React.FC = () => {
           </pre>
         </div>
       </PanelSection>
-    </div>
+    </SectionPage>
   );
 
   const renderWallet = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">{t("Wallet Title")}</h2>
-      
+    <SectionPage title={t("Wallet Title")}>
+
       <div className="bg-gradient-to-br from-gray-800 to-gray-900 text-white rounded-lg p-6 shadow-xl border border-gray-700">
         <div className="flex items-center gap-3 mb-4">
           <Wallet className="w-6 h-6 text-green-400" />
           <h3 className="font-bold text-lg">{t("Wallet Flow Title")}</h3>
         </div>
-        
+
         <div className="space-y-4">
           <div className="flex gap-4">
             <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center font-mono">1</div>
@@ -221,7 +217,7 @@ export const Nut02: React.FC = () => {
               <p className="text-sm text-gray-400">{t("Wallet Step 1 Desc")}</p>
             </div>
           </div>
-          
+
           <div className="flex gap-4">
             <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center font-mono">2</div>
             <div>
@@ -247,7 +243,7 @@ export const Nut02: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </SectionPage>
   );
 
   return (

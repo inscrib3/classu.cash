@@ -6,6 +6,7 @@ import { PanelSection } from "@/src/components/PanelSection";
 import { BoxSection } from "@/src/components/BoxSection";
 import { NutHeader } from "@/src/components/NutHeader";
 import { NutNavigation } from "@/src/components/NutNavigation";
+import { SectionPage } from "@/src/components/SectionPage";
 
 import { CharactersSection } from "@/src/components/CharactersSection";
 import { OverviewSection } from "@/src/components/OverviewSection";
@@ -82,7 +83,7 @@ export const Nut00: React.FC = () => {
       num: 8,
       actor: t("bdhkeSt_8_actor"),
       action: t("bdhkeSt_8_action"),
-      detail: t("bdhkeSt_8_detail")+": k·hash_to_curve(x) == C",
+      detail: t("bdhkeSt_8_detail") + ": k·hash_to_curve(x) == C",
       description: t("bdhkeSt_8_description"),
     },
   ];
@@ -106,20 +107,16 @@ export const Nut00: React.FC = () => {
   };
 
   const renderBDHKE = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">
-        {t("Blind Diffie-Hellmann Key Exchange Protocol")}
-      </h2>
+    <SectionPage title={t("Blind Diffie-Hellmann Key Exchange Protocol")}>
 
       <div className="space-y-4">
         {bdhkeSteps.map((step) => (
           <div
             key={step.num}
-            className={`bg-linear-to-r from-cyan-500/20 to-blue-500/20 border-l-4 border-cyan-400 cursor-pointer ${
-              selectedStep === step.num
+            className={`bg-linear-to-r from-cyan-500/20 to-blue-500/20 border-l-4 border-cyan-400 cursor-pointer ${selectedStep === step.num
                 ? "border-blue-500 shadow-lg"
                 : "border-gray-200 hover:border-blue-300"
-            }`}
+              }`}
             onClick={() =>
               setSelectedStep(selectedStep === step.num ? null : step.num)
             }
@@ -159,31 +156,27 @@ export const Nut00: React.FC = () => {
         title={t("Privacy Guarantee")}
         description={t("Bob signs the token")}
       />
-      
-    </div>
+    </SectionPage>
   );
 
   const renderVariables = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">
-        {t("Cryptographic Variables")}
-      </h2>
+    <SectionPage title={t("Cryptographic Variables")}>
 
       <BoxSection
         title="Common"
         className="bg-gray-50"
       >
         {variables.common.map((v, i) => (
-            <div key={i} className="flex items-start gap-3">
-              <code className="bg-gray-400 text-white px-3 py-1 rounded font-mono text-sm border">
-                {v.symbol}
-              </code>
-              <div>
-                <div className="font-semibold text-gray-600">{v.name}</div>
-                <div className="text-sm text-gray-600">{v.desc}</div>
-              </div>
+          <div key={i} className="flex items-start gap-3">
+            <code className="bg-gray-400 text-white px-3 py-1 rounded font-mono text-sm border">
+              {v.symbol}
+            </code>
+            <div>
+              <div className="font-semibold text-gray-600">{v.name}</div>
+              <div className="text-sm text-gray-600">{v.desc}</div>
             </div>
-          ))}
+          </div>
+        ))}
       </BoxSection>
 
       <BoxSection
@@ -200,7 +193,7 @@ export const Nut00: React.FC = () => {
               <div className="text-sm text-gray-600">{v.desc}</div>
             </div>
           </div>
-        ))}        
+        ))}
       </BoxSection>
 
       <BoxSection
@@ -230,17 +223,16 @@ export const Nut00: React.FC = () => {
           </>
         }
       />
-    </div>
+    </SectionPage>
   );
 
   const renderModels = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">Data Models</h2>
+    <SectionPage title="Data Models">
 
       <PanelSection
-          title={t("BlindedMessage")}
-          subtitle={t("Sent from Alice to")}
-          headerBgClass="bg-purple-500"
+        title={t("BlindedMessage")}
+        subtitle={t("Sent from Alice to")}
+        headerBgClass="bg-purple-500"
       >
         <div className="p-4">
           <pre className="bg-gray-50 text-black text-black p-4 rounded text-sm overflow-x-auto">
@@ -266,9 +258,9 @@ export const Nut00: React.FC = () => {
       </PanelSection>
 
       <PanelSection
-          title={t("BlindSignature (Promise)")}
-          subtitle={t("Sent from Bob to Alice after signing")}
-          headerBgClass="bg-blue-500"
+        title={t("BlindSignature (Promise)")}
+        subtitle={t("Sent from Bob to Alice after signing")}
+        headerBgClass="bg-blue-500"
       >
         <div className="p-4">
           <pre className="bg-gray-50 text-black text-black p-4 rounded text-sm overflow-x-auto">
@@ -296,9 +288,9 @@ export const Nut00: React.FC = () => {
         title={t("Proof (Input)")}
         subtitle={t("Used by Alice to spend tokens")}
         headerBgClass="bg-green-500"
-        >
-          <div className="p-4">
-            <pre className="bg-gray-50 text-black text-black p-4 rounded text-sm overflow-x-auto">
+      >
+        <div className="p-4">
+          <pre className="bg-gray-50 text-black text-black p-4 rounded text-sm overflow-x-auto">
             {`{
   "amount": int,
   "id": hex_str,
@@ -306,31 +298,28 @@ export const Nut00: React.FC = () => {
   "C": hex_str
 }`}
           </pre>
-              <ul className="mt-3 space-y-1 text-sm text-gray-600">
-                <li>
-                  <strong>{t("amount")}:</strong> {t("Value of the proof")}
-                </li>
-                <li>
-                  <strong>id:</strong> {t("Keyset ID of signing keys")}
-                </li>
-                <li>
-                  <strong>secret:</strong> {t("The secret message (UTF-8 string)")}
-                </li>
-                <li>
-                  <strong>C:</strong> {t("Unblinded signature on secret")}
-                </li>
-              </ul>
-            </div>
+          <ul className="mt-3 space-y-1 text-sm text-gray-600">
+            <li>
+              <strong>{t("amount")}:</strong> {t("Value of the proof")}
+            </li>
+            <li>
+              <strong>id:</strong> {t("Keyset ID of signing keys")}
+            </li>
+            <li>
+              <strong>secret:</strong> {t("The secret message (UTF-8 string)")}
+            </li>
+            <li>
+              <strong>C:</strong> {t("Unblinded signature on secret")}
+            </li>
+          </ul>
+        </div>
       </PanelSection>
 
-    </div>
+    </SectionPage>
   );
 
   const renderTokens = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">
-        {t("Token Serialization")}
-      </h2>
+    <SectionPage title={t("Token Serialization")}>
 
       <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg p-6">
         <h3 className="font-bold text-xl mb-3">{t("Token Format")}</h3>
@@ -412,7 +401,7 @@ export const Nut00: React.FC = () => {
         codeSnippet={`utf8("craw") || utf8("B") || cbor(token_v4_object)`}
       />
 
-    </div>
+    </SectionPage>
   );
 
   return (

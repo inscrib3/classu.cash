@@ -6,6 +6,7 @@ import { PanelSection } from "@/src/components/PanelSection";
 import { BoxSection } from "@/src/components/BoxSection";
 import { NutHeader } from "@/src/components/NutHeader";
 import { NutNavigation } from "@/src/components/NutNavigation";
+import { SectionPage } from "@/src/components/SectionPage";
 import { OverviewSection } from "@/src/components/OverviewSection";
 import ClosingPanel from "@/src/components/ClosingPanel";
 
@@ -31,22 +32,19 @@ export const Nut05: React.FC = () => {
   ];
 
   const renderFlow = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold mb-4">
-        {t("General Flow")}
-      </h2>
+    <SectionPage title={t("General Flow")}>
 
       <div className="space-y-4">
-          {meltFlowSteps.map((step) => (
-            <BoxSection key={step.num} title={`${step.num}. ${step.title}`} >
-              {step.desc}
-            </BoxSection>
-          ))}
+        {meltFlowSteps.map((step) => (
+          <BoxSection key={step.num} title={`${step.num}. ${step.title}`} >
+            {step.desc}
+          </BoxSection>
+        ))}
         {/* Supported Methods */}
         <PanelSection
-            title={t("Supported Methods")}
-            subtitle="Method-specific NUTs describe how to handle different payment methods."
-            headerBgClass="bg-purple-600"
+          title={t("Supported Methods")}
+          subtitle="Method-specific NUTs describe how to handle different payment methods."
+          headerBgClass="bg-purple-600"
         >
           <div className="p-4 space-y-2 text-black">
             <p>
@@ -83,14 +81,11 @@ export const Nut05: React.FC = () => {
           <p className="text-sm text-gray-600">{t("Asynchronous Desc")}</p>
         </div>
       </div>
-    </div>
+    </SectionPage>
   );
 
   const renderAPI = () => (
-    <div className="space-y-6 ">
-      <h2 className="text-2xl font-bold text-white mb-4">
-        {t("API Endpoints")}
-      </h2>
+    <SectionPage title={t("API Endpoints")}>
 
       {/* Quote Request */}
       <PanelSection
@@ -210,14 +205,11 @@ export const Nut05: React.FC = () => {
         // icon={<TrendingUp className="w-5 h-5 text-red-500" />}
         className="bg-red-900/70 border-red-700"
       />
-    </div>
+    </SectionPage>
   );
 
   const renderSettings = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">
-        {t("Settings")}
-      </h2>
+    <SectionPage title={t("Settings")}>
 
       <p className="text-gray-300 mb-4">{t("Settings Desc")}</p>
 
@@ -285,7 +277,7 @@ export const Nut05: React.FC = () => {
           <li>{t("Method Step 4")}</li>
         </ol>
       </ClosingPanel>
-    </div>
+    </SectionPage>
   );
 
   return (
