@@ -4,16 +4,16 @@ import React, { useState } from "react";
 import { Lock, CheckCircle, Eye, EyeOff } from "lucide-react";
 import { PanelSection } from "@/src/components/PanelSection";
 import { BoxSection } from "@/src/components/BoxSection";
-import { NutHeader } from "@/src/components/NutHeader";
-import { NutNavigation } from "@/src/components/NutNavigation";
+import { NutLayout } from "@/src/components/NutLayout";
 import { SectionPage } from "@/src/components/SectionPage";
 
 import { CharactersSection } from "@/src/components/CharactersSection";
-import { OverviewSection } from "@/src/components/OverviewSection";
 import { SectionHeader } from "@/src/components/SectionHeader";
 import ClosingPanel from "@/src/components/ClosingPanel";
 
 import { useTranslations } from "next-intl";
+import { textClasses, cardClasses, layoutClasses } from "@/src/styles/commonClasses";
+import { NavSection, AnimationStep, Variable, RenderFunctions } from "@/src/types/nut";
 
 export const Nut00: React.FC = () => {
   const t = useTranslations("nut00");
@@ -21,7 +21,7 @@ export const Nut00: React.FC = () => {
   const [activeSection, setActiveSection] = useState("overview");
   const [selectedStep, setSelectedStep] = useState<number | null>(null);
 
-  const sections = [
+  const sections: NavSection[] = [
     { id: "overview", label: t("Overview"), icon: "📚" },
     { id: "bdhke", label: t("BDHKE Protocol"), icon: "🔐" },
     { id: "variables", label: t("Key Variables"), icon: "🔑" },
@@ -29,7 +29,7 @@ export const Nut00: React.FC = () => {
     { id: "tokens", label: t("Token Format"), icon: "🎫" },
   ];
 
-  const bdhkeSteps = [
+  const bdhkeSteps: AnimationStep[] = [
     {
       num: 1,
       actor: t("bdhkeSt_1_actor"),
@@ -88,7 +88,7 @@ export const Nut00: React.FC = () => {
     },
   ];
 
-  const variables = {
+  const variables: { common: Variable[]; bob: Variable[]; alice: Variable[] } = {
     common: [
       { symbol: "G", name: t("v_common_name"), desc: t("v_common_desc") },
     ],
@@ -113,16 +113,16 @@ export const Nut00: React.FC = () => {
         {bdhkeSteps.map((step) => (
           <div
             key={step.num}
-            className={`bg-linear-to-r from-cyan-500/20 to-blue-500/20 border-l-4 border-cyan-400 cursor-pointer ${selectedStep === step.num
-                ? "border-blue-500 shadow-lg"
-                : "border-gray-200 hover:border-blue-300"
+            className={`bg-linear-to-r from-cyan-500/20 to-cyan-400/20 border-l-4 border-cyan-400 cursor-pointer ${selectedStep === step.num
+                ? "border-cyan-500 shadow-lg"
+                : "border-gray-200 hover:border-cyan-300"
               }`}
             onClick={() =>
               setSelectedStep(selectedStep === step.num ? null : step.num)
             }
           >
             <div className="p-4 flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold">
+              <div className="flex-shrink-0 w-10 h-10 bg-cyan-600 text-white rounded-full flex items-center justify-center font-bold">
                 {step.num}
               </div>
               <div className="flex-1">
@@ -138,10 +138,11 @@ export const Nut00: React.FC = () => {
                 </code>
               </div>
               {selectedStep === step.num ? (
-                <Eye className="w-5 h-5 text-blue-500" />
+                <Eye className="w-5 h-5 text-cyan-500" />
               ) : (
                 <EyeOff className="w-5 h-5 text-gray-400" />
               )}
+
             </div>
             {selectedStep === step.num && (
               <div className="px-4 pb-4 pt-2 border-t border-gray-100">
@@ -164,7 +165,7 @@ export const Nut00: React.FC = () => {
 
       <BoxSection
         title="Common"
-        className="bg-gray-50"
+        className="bg-cyan-50"
       >
         {variables.common.map((v, i) => (
           <div key={i} className="flex items-start gap-3">
@@ -181,11 +182,11 @@ export const Nut00: React.FC = () => {
 
       <BoxSection
         title="Bob (Mint)"
-        className="bg-blue-50"
+        className="bg-cyan-50"
       >
         {variables.bob.map((v, i) => (
           <div key={i} className="flex items-start gap-3">
-            <code className="bg-gray-400 text-white px-3 py-1 rounded font-mono text-sm border border-blue-200">
+            <code className="bg-gray-400 text-white px-3 py-1 rounded font-mono text-sm border border-cyan-200">
               {v.symbol}
             </code>
             <div>
@@ -198,16 +199,16 @@ export const Nut00: React.FC = () => {
 
       <BoxSection
         title="Alice (User)"
-        className="bg-purple-50"
+        className="bg-cyan-50"
       >
         {variables.alice.map((v, i) => (
-          <div key={i} className="flex items-start gap-3">
-            <code className="bg-gray-400 text-white px-3 py-1 rounded font-mono text-sm border border-purple-200">
+          <div key={i} className={layoutClasses.flexCenter + " gap-3 justify-start"}>
+            <code className="bg-gray-400 text-white px-3 py-1 rounded font-mono text-sm border border-cyan-200">
               {v.symbol}
             </code>
             <div>
               <div className="font-semibold text-gray-600">{v.name}</div>
-              <div className="text-sm text-gray-600">{v.desc}</div>
+              <div className={textClasses.small}>{v.desc}</div>
             </div>
           </div>
         ))}
@@ -322,7 +323,7 @@ export const Nut00: React.FC = () => {
     <SectionPage title={t("Token Serialization")}>
 
       <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg p-6">
-        <h3 className="font-bold text-xl mb-3">{t("Token Format")}</h3>
+        <h3 className={textClasses.heading3 + " mb-3"}>{t("Token Format")}</h3>
         <code className="block bg-white/20 p-3 rounded">
           cashu[version][token]
         </code>
@@ -334,9 +335,9 @@ export const Nut00: React.FC = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className={layoutClasses.gridTwoCol}>
         <div className="bg-white rounded-lg border-2 border-blue-200 p-6">
-          <div className="flex items-center gap-2 mb-3">
+          <div className={layoutClasses.flexCenter + " gap-2 mb-3 justify-start"}>
             <span className="bg-blue-500 text-white px-2 py-1 rounded font-mono text-sm">
               V3
             </span>
@@ -353,7 +354,7 @@ export const Nut00: React.FC = () => {
         </div>
 
         <div className="bg-white rounded-lg border-2 border-purple-200 p-6">
-          <div className="flex items-center gap-2 mb-3">
+          <div className={layoutClasses.flexCenter + " gap-2 mb-3 justify-start"}>
             <span className="bg-purple-500 text-white px-2 py-1 rounded font-mono text-sm">
               V4
             </span>
@@ -405,42 +406,36 @@ export const Nut00: React.FC = () => {
   );
 
   return (
-    <>
-      <NutHeader
-        nutNumber="00"
-        title={t("title")}
-        subtitle={t("subtitle")}
-        badgeLabel={t("MANDATORY")}
-      />
-
-      <NutNavigation
-        sections={sections}
-        activeSection={activeSection}
-        onSectionChange={(sectionId) => {
-          setActiveSection(sectionId);
-          setSelectedStep(null);
-        }}
-      />
-
-      {/* Content */}
-      <div className="rounded-lg shadow-xl p-6 md:p-8 mb-8">
-        {activeSection === "overview" && (
-          <OverviewSection
-            nutNumber="00"
-            title={t("Protocol Foundation")}
-            description={t("This specification defines")}
-            borderColor="border-green-500"
-            icon={<Lock className="w-5 h-5" />}
-            iconLabel={t("Key Innovation: Blind Signatures")}
-            iconDescription={t("The protocol uses")}
-          />
-        )}
-        {activeSection === "bdhke" && renderBDHKE()}
-        {activeSection === "variables" && renderVariables()}
-        {activeSection === "models" && renderModels()}
-        {activeSection === "tokens" && renderTokens()}
-      </div>
-    </>
+    <NutLayout
+      nutNumber="00"
+      sections={sections}
+      activeSection={activeSection}
+      onSectionChange={(sectionId) => {
+        setActiveSection(sectionId);
+        setSelectedStep(null);
+      }}
+      headerProps={{
+        nutNumber: "00",
+        title: t("title"),
+        subtitle: t("subtitle"),
+        badgeLabel: t("MANDATORY"),
+      }}
+      overviewProps={{
+        nutNumber: "00",
+        title: t("Protocol Foundation"),
+        description: t("This specification defines"),
+        borderColor: "border-green-500",
+        icon: <Lock className="w-5 h-5" />,
+        iconLabel: t("Key Innovation: Blind Signatures"),
+        iconDescription: t("The protocol uses"),
+      }}
+      renderFunctions={{
+        bdhke: renderBDHKE,
+        variables: renderVariables,
+        models: renderModels,
+        tokens: renderTokens,
+      }}
+    />
   );
 };
 

@@ -4,20 +4,20 @@ import React, { useState } from "react";
 import { CheckCircle, Zap, CornerDownRight, TrendingUp, DollarSign } from "lucide-react";
 import { PanelSection } from "@/src/components/PanelSection";
 import { BoxSection } from "@/src/components/BoxSection";
-import { NutHeader } from "@/src/components/NutHeader";
-import { NutNavigation } from "@/src/components/NutNavigation";
+import { NutLayout } from "@/src/components/NutLayout";
 import { SectionPage } from "@/src/components/SectionPage";
-import { OverviewSection } from "@/src/components/OverviewSection";
 import ClosingPanel from "@/src/components/ClosingPanel";
 
 import { useTranslations } from "next-intl";
+import { textClasses } from "@/src/styles/commonClasses";
+import { NavSection } from "@/src/types/nut";
 
 export const Nut05: React.FC = () => {
   const t = useTranslations("nut05");
 
   const [activeSection, setActiveSection] = useState("overview");
 
-  const sections = [
+  const sections: NavSection[] = [
     { id: "overview", label: t("Overview"), icon: "📚" },
     { id: "flow", label: t("General Flow"), icon: "➡️" },
     { id: "api", label: t("API Endpoints"), icon: "💻" },
@@ -44,7 +44,7 @@ export const Nut05: React.FC = () => {
         <PanelSection
           title={t("Supported Methods")}
           subtitle="Method-specific NUTs describe how to handle different payment methods."
-          headerBgClass="bg-purple-600"
+          headerBgClass="bg-orange-600"
         >
           <div className="p-4 space-y-2 text-black">
             <p>
@@ -65,17 +65,17 @@ export const Nut05: React.FC = () => {
         {t("Processing Title")}
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-white rounded-lg border-2 border-green-400 p-4 shadow-md">
+        <div className="bg-white rounded-lg border-2 border-orange-400 p-4 shadow-md">
           <div className="flex items-center gap-2 mb-2">
-            <CheckCircle className="w-5 h-5 text-green-500" />
+            <CheckCircle className="w-5 h-5 text-orange-500" />
             <h4 className="font-bold text-black">{t("Synchronous Title")}</h4>
           </div>
           <p className="text-sm text-gray-600">{t("Synchronous Desc")}</p>
         </div>
 
-        <div className="bg-white rounded-lg border-2 border-yellow-400 p-4 shadow-md">
+        <div className="bg-white rounded-lg border-2 border-orange-400 p-4 shadow-md">
           <div className="flex items-center gap-2 mb-2">
-            <Zap className="w-5 h-5 text-yellow-600" />
+            <Zap className="w-5 h-5 text-orange-600" />
             <h4 className="font-bold text-black">{t("Asynchronous Title")}</h4>
           </div>
           <p className="text-sm text-gray-600">{t("Asynchronous Desc")}</p>
@@ -91,7 +91,7 @@ export const Nut05: React.FC = () => {
       <PanelSection
         title={`POST /v1/melt/quote/{method}`}
         subtitle={t("Quote Request Title")}
-        headerBgClass="bg-blue-500"
+        headerBgClass="bg-orange-500"
       >
         <div className="p-4 space-y-4">
           <code className="block bg-gray-800 text-white p-3 rounded text-sm">
@@ -118,7 +118,7 @@ export const Nut05: React.FC = () => {
   // Additional method-specific fields
 }`}
           </pre>
-          <ul className="mt-3 space-y-1 text-sm text-black">
+          <ul className={`mt-3 space-y-1 ${textClasses.small} text-black`}>
             <li><strong>quote:</strong> {t("Quote Response Quote")}</li>
             <li><strong>amount:</strong> {t("Quote Response Amount")}</li>
             <li><strong>unit:</strong> {t("Quote Response Unit")}</li>
@@ -137,7 +137,7 @@ export const Nut05: React.FC = () => {
       <PanelSection
         title={`GET /v1/melt/quote/{method}/{quote_id}`}
         subtitle={t("Check Quote Title")}
-        headerBgClass="bg-yellow-600"
+        headerBgClass="bg-orange-600"
       >
         <div className="p-4">
           <code className="block bg-gray-800 text-white p-3 rounded text-sm">
@@ -153,7 +153,7 @@ export const Nut05: React.FC = () => {
       <PanelSection
         title={`POST /v1/melt/{method}`}
         subtitle={t("Execute Melt Title")}
-        headerBgClass="bg-green-600"
+        headerBgClass="bg-orange-600"
       >
         <div className="p-4 space-y-4">
           <code className="block bg-gray-800 text-white p-3 rounded text-sm">
@@ -168,7 +168,7 @@ export const Nut05: React.FC = () => {
   // Additional method-specific fields
 }`}
           </pre>
-          <ul className="mt-3 space-y-1 text-sm text-black">
+          <ul className={`mt-3 space-y-1 ${textClasses.small} text-black`}>
             <li><strong>quote:</strong> {t("Quote ID")}</li>
             <li><strong>inputs:</strong> {t("Melt Request Inputs")}</li>
           </ul>
@@ -178,9 +178,9 @@ export const Nut05: React.FC = () => {
             {t("Async Header Desc")}
           </p>
 
-          <div className="bg-yellow-900/90 border border-yellow-700 p-3 rounded">
-            <h5 className="font-bold text-yellow-300">{t("Async Supported Flow")}</h5>
-            <ol className="list-decimal list-inside text-sm text-yellow-100 space-y-1 mt-1">
+          <div className="bg-orange-900/90 border border-orange-700 p-3 rounded">
+            <h5 className="font-bold text-orange-300">{t("Async Supported Flow")}</h5>
+            <ol className={`list-decimal list-inside ${textClasses.small} text-orange-100 space-y-1 mt-1`}>
               <li>{t("Async Step 1")}</li>
               <li>{t("Async Step 2")}</li>
               <li>{t("Async Step 3")}</li>
@@ -188,7 +188,7 @@ export const Nut05: React.FC = () => {
             </ol>
           </div>
 
-          <div className="text-sm text-black pt-2">
+          <div className={`${textClasses.small} text-black pt-2`}>
             {t("Async Poll Desc")}
             <ul className="list-disc list-inside ml-4 mt-1">
               <li>{t("Async Poll 1")}</li>
@@ -203,7 +203,7 @@ export const Nut05: React.FC = () => {
         title="Synchronous Processing Note"
         description={t("Sync Important")}
         // icon={<TrendingUp className="w-5 h-5 text-red-500" />}
-        className="bg-red-900/70 border-red-700"
+        // className="bg-orange-900/70 border-orange-700"
       />
     </SectionPage>
   );
@@ -217,7 +217,7 @@ export const Nut05: React.FC = () => {
       <PanelSection
         title="NUT-06 Info Response Snippet"
         subtitle="Key 4 for Minting"
-        headerBgClass="bg-gray-700"
+        headerBgClass="bg-orange-700"
       >
 
 
@@ -233,7 +233,7 @@ export const Nut05: React.FC = () => {
 }`}
         </pre>
 
-        <ul className="mt-3 space-y-1 text-sm text-black">
+        <ul className={`mt-3 space-y-1 ${textClasses.small} text-black`}>
           <li><strong>disabled:</strong> {t("Setting Disabled Desc")}</li>
         </ul>
 
@@ -254,7 +254,7 @@ export const Nut05: React.FC = () => {
   "options": <Object|null>
 }`}
           </pre>
-          <ul className="mt-3 space-y-1 text-sm text-gray-600">
+          <ul className={`mt-3 space-y-1 ${textClasses.small} text-gray-600`}>
             <li><strong>method:</strong> {t("Setting Method")}</li>
             <li><strong>unit:</strong> {t("Setting Unit")}</li>
             <li><strong>min_amount/max_amount:</strong> {t("Setting MinMax Desc")}</li>
@@ -268,7 +268,7 @@ export const Nut05: React.FC = () => {
         title={t("Adding New Methods Title")}
         description={t("Adding New Methods Desc")}
         // icon={<Zap className="w-5 h-5 text-cyan-500" />}
-        className="bg-cyan-900/70 border-cyan-700"
+        // className="bg-orange-900/70 border-orange-700"
       >
         <ol className="list-decimal list-inside text-sm text-black space-y-1 mt-2">
           <li>{t("Method Step 1")}</li>
@@ -281,40 +281,32 @@ export const Nut05: React.FC = () => {
   );
 
   return (
-    <>
-      <NutHeader
-        nutNumber="05"
-        title={t("title")}
-        subtitle={t("subtitle")}
-        badgeLabel={t("MANDATORY")}
-      />
-
-      <NutNavigation
-        sections={sections}
-        activeSection={activeSection}
-        onSectionChange={(sectionId) => {
-          setActiveSection(sectionId);
-        }}
-      />
-
-      {/* Content */}
-      <div className="rounded-lg shadow-xl p-6 md:p-8 mb-8">
-        {activeSection === "overview" && (
-          <OverviewSection
-            nutNumber="05"
-            title={t("Protocol Definition")}
-            description={t("Protocol Definition Desc")}
-            borderColor="border-red-500"
-            icon={<DollarSign className="w-5 h-5" />}
-            iconLabel={t("Overview")}
-            iconDescription="Opposite of minting, a two-step process: quote and melt."
-          />
-        )}
-        {activeSection === "flow" && renderFlow()}
-        {activeSection === "api" && renderAPI()}
-        {activeSection === "settings" && renderSettings()}
-      </div>
-    </>
+    <NutLayout
+      nutNumber="05"
+      sections={sections}
+      activeSection={activeSection}
+      onSectionChange={setActiveSection}
+      headerProps={{
+        nutNumber: "05",
+        title: t("title"),
+        subtitle: t("subtitle"),
+        badgeLabel: t("MANDATORY"),
+      }}
+      overviewProps={{
+        nutNumber: "05",
+        title: t("Protocol Definition"),
+        description: t("Protocol Definition Desc"),
+        borderColor: "border-orange-500",
+        icon: <DollarSign className="w-5 h-5" />,
+        iconLabel: t("Overview"),
+        iconDescription: "Opposite of minting, a two-step process: quote and melt.",
+      }}
+      renderFunctions={{
+        flow: renderFlow,
+        api: renderAPI,
+        settings: renderSettings,
+      }}
+    />
   );
 };
 
