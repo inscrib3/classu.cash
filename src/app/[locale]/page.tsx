@@ -75,10 +75,11 @@ const Home = () => {
 
   return (
     <>
-      {/* Header */}
-      <Header />
+      <Header
+        title={t("title")}
+        subtitle={t("subtitle")}
+      />
 
-      {/* Characters Section */}
       <CharactersSection />
 
       {/* Key Concept */}
@@ -101,11 +102,10 @@ const Home = () => {
             <button
               key={idx}
               onClick={() => startAnimation(idx)}
-              className={`cursor-pointer p-6 rounded-xl border-2 transition-all transform hover:scale-105 ${
-                activePhase === idx
+              className={`cursor-pointer p-6 rounded-xl border-2 transition-all transform hover:scale-105 ${activePhase === idx
                   ? "bg-linear-to-r from-yellow-500 to-orange-500 border-yellow-300 shadow-2xl"
                   : "bg-white/10 border-white/30 hover:bg-white/20"
-              }`}
+                }`}
             >
               <div className="text-2xl font-bold mb-2">
                 {t("Phase")} {idx + 1}
@@ -133,11 +133,10 @@ const Home = () => {
             {activePhase === 0 && (
               <div className="flex flex-col sm:flex-row! items-center justify-center gap-6 md:gap-8 w-full max-w-4xl">
                 <div
-                  className={`transition-all duration-500 ${
-                    animationStep >= 0
+                  className={`transition-all duration-500 ${animationStep >= 0
                       ? "opacity-100 scale-100"
                       : "opacity-0 scale-50"
-                  }`}
+                    }`}
                 >
                   <Alice size="small" compact />
                 </div>
@@ -162,11 +161,10 @@ const Home = () => {
 
                 {animationStep >= 2 && (
                   <div
-                    className={`transition-all duration-500 ${
-                      animationStep >= 2
+                    className={`transition-all duration-500 ${animationStep >= 2
                         ? "opacity-100 scale-100"
                         : "opacity-0 scale-50"
-                    }`}
+                      }`}
                   >
                     <Bob size="small" compact />
                   </div>
@@ -185,11 +183,10 @@ const Home = () => {
             {activePhase === 1 && (
               <div className="flex sm:flex-row! flex-col items-center justify-center gap-6 md:gap-8 w-full max-w-4xl">
                 <div
-                  className={`transition-all duration-500 ${
-                    animationStep >= 0
+                  className={`transition-all duration-500 ${animationStep >= 0
                       ? "opacity-100 scale-100"
                       : "opacity-0 scale-50"
-                  }`}
+                    }`}
                 >
                   <Alice size="small" compact />
                 </div>
@@ -207,11 +204,10 @@ const Home = () => {
 
                 {animationStep >= 1 && (
                   <div
-                    className={`transition-all duration-500 ${
-                      animationStep >= 1
+                    className={`transition-all duration-500 ${animationStep >= 1
                         ? "opacity-100 scale-100"
                         : "opacity-0 scale-50"
-                    }`}
+                      }`}
                   >
                     <Carol size="small" compact />
                   </div>
@@ -223,11 +219,10 @@ const Home = () => {
             {activePhase === 2 && (
               <div className="flex sm:flex-row! flex-col items-center justify-center gap-6 md:gap-8 w-full max-w-5xl">
                 <div
-                  className={`transition-all duration-500 ${
-                    animationStep >= 0
+                  className={`transition-all duration-500 ${animationStep >= 0
                       ? "opacity-100 scale-100"
                       : "opacity-0 scale-50"
-                  }`}
+                    }`}
                 >
                   <Carol size="small" compact />
                 </div>
@@ -243,11 +238,10 @@ const Home = () => {
 
                 {animationStep >= 1 && (
                   <div
-                    className={`transition-all duration-500 ${
-                      animationStep >= 1
+                    className={`transition-all duration-500 ${animationStep >= 1
                         ? "opacity-100 scale-100"
                         : "opacity-0 scale-50"
-                    }`}
+                      }`}
                   >
                     <Bob size="small" compact />
                   </div>
@@ -289,19 +283,17 @@ const Home = () => {
             {phases[activePhase].steps.map((step, idx) => (
               <div
                 key={idx}
-                className={`p-4 rounded-lg transition-all duration-500 ${
-                  idx <= animationStep
+                className={`p-4 rounded-lg transition-all duration-500 ${idx <= animationStep
                     ? "bg-linear-to-r from-cyan-500/20 to-blue-500/20 border-l-4 border-cyan-400"
                     : "bg-white/5 opacity-50"
-                }`}
+                  }`}
               >
                 <div className="flex items-center gap-4">
                   <div
-                    className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${
-                      idx <= animationStep
+                    className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${idx <= animationStep
                         ? "bg-cyan-400 text-black font-bold"
                         : "bg-gray-600"
-                    }`}
+                      }`}
                   >
                     {idx + 1}
                   </div>

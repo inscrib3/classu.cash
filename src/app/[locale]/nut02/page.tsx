@@ -4,19 +4,20 @@ import React, { useState } from "react";
 import { Key, Calculator, Hash, Server, Wallet, Info } from "lucide-react";
 import { PanelSection } from "@/src/components/PanelSection";
 import { BoxSection } from "@/src/components/BoxSection";
-import { NutHeader } from "@/src/components/NutHeader";
-import { NutNavigation } from "@/src/components/NutNavigation";
-import { OverviewSection } from "@/src/components/OverviewSection";
+import { SectionPage } from "@/src/components/SectionPage";
+import { NutLayout } from "@/src/components/NutLayout";
 import ClosingPanel from "@/src/components/ClosingPanel";
 
 import { useTranslations } from "next-intl";
+import { textClasses, layoutClasses } from "@/src/styles/commonClasses";
+import { NavSection } from "@/src/types/nut";
 
 export const Nut02: React.FC = () => {
   const t = useTranslations("nut02");
 
   const [activeSection, setActiveSection] = useState("overview");
 
-  const sections = [
+  const sections: NavSection[] = [
     { id: "overview", label: t("Overview"), icon: "📖" },
     { id: "properties", label: t("Keyset Properties"), icon: "🔑" },
     { id: "fees", label: t("Fees Calculation"), icon: "🧮" },
@@ -26,39 +27,38 @@ export const Nut02: React.FC = () => {
   ];
 
   const renderProperties = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">{t("Properties Title")}</h2>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <SectionPage title={t("Properties Title")}>
+
+      <div className={layoutClasses.gridTwoCol}>
         <BoxSection title={t("ID Title")} className="bg-purple-50">
-          <p className="text-sm text-gray-700 mb-2">
+          <p className={`${textClasses.small} text-gray-700 mb-2`}>
             {t("ID Desc")}
           </p>
-          <ul className="text-sm text-gray-600 list-disc ml-4 space-y-1">
+          <ul className={`${textClasses.small} text-gray-600 list-disc ml-4 space-y-1`}>
             <li>{t("ID Detail 1")}</li>
             <li>{t("ID Detail 2")}</li>
             <li>{t("ID Detail 3")}</li>
           </ul>
         </BoxSection>
 
-        <BoxSection title={t("Active Title")} className="bg-green-50">
-           <p className="text-sm text-gray-700 mb-2">
+        <BoxSection title={t("Active Title")} className="bg-purple-50">
+          <p className={`${textClasses.small} text-gray-700 mb-2`}>
             {t("Active Desc")}
           </p>
-          <ul className="text-sm text-gray-600 list-disc ml-4 space-y-1">
+          <ul className={`${textClasses.small} text-gray-600 list-disc ml-4 space-y-1`}>
             <li>{t("Active Detail 1")}</li>
             <li>{t("Active Detail 2")}</li>
             <li>{t("Active Detail 3")}</li>
           </ul>
         </BoxSection>
 
-        <BoxSection title={t("Unit Title")} className="bg-blue-50">
+        <BoxSection title={t("Unit Title")} className="bg-purple-50">
           <p className="text-sm text-gray-700">
             {t("Unit Desc")}
           </p>
         </BoxSection>
 
-        <BoxSection title={t("Fee Title")} className="bg-orange-50">
+        <BoxSection title={t("Fee Title")} className="bg-purple-50">
           <p className="text-sm text-gray-700">
             {t("Fee Desc")}
           </p>
@@ -67,23 +67,22 @@ export const Nut02: React.FC = () => {
           </p>
         </BoxSection>
       </div>
-    </div>
+    </SectionPage>
   );
 
   const renderFees = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">{t("Fees Title")}</h2>
-      
-      <PanelSection 
-        title={t("Ppk Title")} 
+    <SectionPage title={t("Fees Title")}>
+
+      <PanelSection
+        title={t("Ppk Title")}
         subtitle={t("Ppk Subtitle")}
-        headerBgClass="bg-orange-500"
+        headerBgClass="bg-purple-600"
       >
         <div className="p-4 space-y-3">
           <p className="text-gray-700 text-sm">
             {t("Ppk Desc")}
           </p>
-          <div className="bg-gray-100 text-black p-3 rounded border-l-4 border-orange-500 text-sm">
+          <div className="bg-gray-100 text-black p-3 rounded border-l-4 border-purple-500 text-sm">
             {t("Ppk Example Note")}
           </div>
         </div>
@@ -99,8 +98,8 @@ export const Nut02: React.FC = () => {
 
       <div className="space-y-2">
         <h3 className="text-white font-semibold">{t("Calculation Title")}</h3>
-        <pre className="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto font-mono">
-{`def fees(inputs: List[Proof]) -> int:
+        <pre className="bg-gray-900 text-purple-400 p-4 rounded text-sm overflow-x-auto font-mono">
+          {`def fees(inputs: List[Proof]) -> int:
   sum_fees = 0
   for proof in inputs:
     sum_fees += keysets[proof.id].input_fee_ppk
@@ -111,13 +110,12 @@ export const Nut02: React.FC = () => {
           {t("Calculation Note")}
         </p>
       </div>
-    </div>
+    </SectionPage>
   );
 
   const renderDerivation = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">{t("Derivation Title")}</h2>
-      
+    <SectionPage title={t("Derivation Title")}>
+
       <div className="bg-white rounded-lg p-6 shadow-md">
         <h3 className="font-bold text-gray-800 mb-4">{t("Derivation Steps Title")}</h3>
         <ol className="list-decimal ml-5 space-y-2 text-gray-700 text-sm">
@@ -131,31 +129,30 @@ export const Nut02: React.FC = () => {
 
       <div className="space-y-2">
         <h3 className="text-white font-semibold">{t("Derivation Code Title")}</h3>
-        <pre className="bg-gray-900 text-blue-300 p-4 rounded text-sm overflow-x-auto font-mono">
-{`def derive_keyset_id(keys: Dict[int, PublicKey]) -> str:
+        <pre className="bg-gray-900 text-purple-300 p-4 rounded text-sm overflow-x-auto font-mono">
+          {`def derive_keyset_id(keys: Dict[int, PublicKey]) -> str:
     sorted_keys = dict(sorted(keys.items()))
     pubkeys_concat = b"".join([p.serialize() for p in sorted_keys.values()])
     return "00" + hashlib.sha256(pubkeys_concat).hexdigest()[:14]`}
         </pre>
       </div>
-    </div>
+    </SectionPage>
   );
 
   const renderApi = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">{t("API Title")}</h2>
+    <SectionPage title={t("API Title")}>
 
       <PanelSection
         title={t("API Keyset Title")}
         subtitle={t("API Keyset Subtitle")}
-        headerBgClass="bg-blue-600"
+        headerBgClass="bg-purple-600"
       >
         <div className="p-4">
           <p className="text-sm text-gray-600 mb-3">
             {t("API Keyset Desc")}
           </p>
           <pre className="bg-gray-50 text-black p-4 rounded text-xs overflow-x-auto border">
-{`{
+            {`{
   "keysets": [
     {
       "id": "009a1f293253e41e",
@@ -178,14 +175,14 @@ export const Nut02: React.FC = () => {
       <PanelSection
         title={t("API Keys Title")}
         subtitle={t("API Keys Subtitle")}
-        headerBgClass="bg-indigo-600"
+        headerBgClass="bg-purple-600"
       >
         <div className="p-4">
           <p className="text-sm text-gray-600 mb-3">
             {t("API Keys Desc")}
           </p>
           <pre className="bg-gray-50 text-black p-4 rounded text-xs overflow-x-auto border">
-{`{
+            {`{
   "keysets": [{
     "id": "009a1f293253e41e",
     "unit": "sat",
@@ -200,33 +197,32 @@ export const Nut02: React.FC = () => {
           </pre>
         </div>
       </PanelSection>
-    </div>
+    </SectionPage>
   );
 
   const renderWallet = () => (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">{t("Wallet Title")}</h2>
-      
+    <SectionPage title={t("Wallet Title")}>
+
       <div className="bg-gradient-to-br from-gray-800 to-gray-900 text-white rounded-lg p-6 shadow-xl border border-gray-700">
         <div className="flex items-center gap-3 mb-4">
-          <Wallet className="w-6 h-6 text-green-400" />
-          <h3 className="font-bold text-lg">{t("Wallet Flow Title")}</h3>
+          <Wallet className="w-6 h-6 text-purple-400" />
+          <h3 className={`${textClasses.heading3} text-purple-400`}>{t("Wallet Flow Title")}</h3>
         </div>
-        
+
         <div className="space-y-4">
           <div className="flex gap-4">
             <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center font-mono">1</div>
             <div>
               <p className="font-semibold text-gray-200">{t("Wallet Step 1 Title")}</p>
-              <p className="text-sm text-gray-400">{t("Wallet Step 1 Desc")}</p>
+              <p className={`${textClasses.small} text-gray-400`}>{t("Wallet Step 1 Desc")}</p>
             </div>
           </div>
-          
+
           <div className="flex gap-4">
             <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center font-mono">2</div>
             <div>
               <p className="font-semibold text-gray-200">{t("Wallet Step 2 Title")}</p>
-              <p className="text-sm text-gray-400">{t("Wallet Step 2 Desc")}</p>
+              <p className={`${textClasses.small} text-gray-400`}>{t("Wallet Step 2 Desc")}</p>
             </div>
           </div>
 
@@ -234,7 +230,7 @@ export const Nut02: React.FC = () => {
             <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center font-mono">3</div>
             <div>
               <p className="font-semibold text-gray-200">{t("Wallet Step 3 Title")}</p>
-              <p className="text-sm text-gray-400">{t("Wallet Step 3 Desc")}</p>
+              <p className={`${textClasses.small} text-gray-400`}>{t("Wallet Step 3 Desc")}</p>
             </div>
           </div>
 
@@ -242,48 +238,43 @@ export const Nut02: React.FC = () => {
             <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center font-mono">4</div>
             <div>
               <p className="font-semibold text-gray-200">{t("Wallet Step 4 Title")}</p>
-              <p className="text-sm text-gray-400">{t("Wallet Step 4 Desc")}</p>
+              <p className={`${textClasses.small} text-gray-400`}>{t("Wallet Step 4 Desc")}</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </SectionPage>
   );
 
   return (
-    <>
-      <NutHeader
-        nutNumber="02"
-        title={t("title")}
-        subtitle={t("subtitle")}
-        badgeLabel={t("MANDATORY")}
-      />
-
-      <NutNavigation
-        sections={sections}
-        activeSection={activeSection}
-        onSectionChange={setActiveSection}
-      />
-
-      <div className="rounded-lg shadow-xl p-6 md:p-8 mb-8">
-        {activeSection === "overview" && (
-          <OverviewSection
-            nutNumber="02"
-            title={t("Protocol Definition")}
-            description={t("Protocol Definition Description")}
-            borderColor="border-purple-500"
-            icon={<Key className="w-5 h-5" />}
-            iconLabel={t("Keyset Management")}
-            iconDescription={t("Keyset Management Description")}
-          />
-        )}
-        {activeSection === "properties" && renderProperties()}
-        {activeSection === "fees" && renderFees()}
-        {activeSection === "derivation" && renderDerivation()}
-        {activeSection === "api" && renderApi()}
-        {activeSection === "wallet" && renderWallet()}
-      </div>
-    </>
+    <NutLayout
+      nutNumber="02"
+      sections={sections}
+      activeSection={activeSection}
+      onSectionChange={setActiveSection}
+      headerProps={{
+        nutNumber: "02",
+        title: t("title"),
+        subtitle: t("subtitle"),
+        badgeLabel: t("MANDATORY"),
+      }}
+      overviewProps={{
+        nutNumber: "02",
+        title: t("Protocol Definition"),
+        description: t("Protocol Definition Description"),
+        borderColor: "border-purple-500",
+        icon: <Key className="w-5 h-5" />,
+        iconLabel: t("Keyset Management"),
+        iconDescription: t("Keyset Management Description"),
+      }}
+      renderFunctions={{
+        properties: renderProperties,
+        fees: renderFees,
+        derivation: renderDerivation,
+        api: renderApi,
+        wallet: renderWallet,
+      }}
+    />
   );
 };
 

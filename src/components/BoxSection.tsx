@@ -1,4 +1,6 @@
 import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 interface BoxSectionProps {
   title: React.ReactNode;
@@ -8,15 +10,17 @@ interface BoxSectionProps {
 
 export const BoxSection: React.FC<BoxSectionProps> = ({
   title,
-  className = "bg-white",
+  className,
   children,
 }) => {
   return (
-    <div className={`rounded-lg p-6  ${className}`}>
-        <h3 className="font-bold text-lg mb-3 text-gray-700">
-          {title}
-        </h3>
-        <div className="text-gray-600">{children}</div>
-    </div>
+    <Card className={cn("border-0 shadow-none", className)}>
+      <CardHeader className="p-6 pb-3">
+        <CardTitle className="text-lg font-bold text-gray-700">{title}</CardTitle>
+      </CardHeader>
+      <CardContent className="p-6 pt-0 text-gray-600">
+        {children}
+      </CardContent>
+    </Card>
   );
 };
